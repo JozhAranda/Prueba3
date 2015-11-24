@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/snackbar.min.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      body {
+        background: #eee url('assets/img/bg.jpg') no-repeat bottom right fixed;
+        background-position-y: 20px;
+      }
+      .snackbar {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 7px;
+        color: #fff;
+      } 
+      .inputShadow {
+        background-color: #fff;
+        padding-left: 7px !important;
+      }
+      .inputShadow:focus {
+        -webkit-box-shadow: inset 0 -2px 0 rgba(0, 23, 52, 0.9) !important;
+        box-shadow: inset 0 -2px 0 rgba(0, 23, 52, 0.9) !important;
+        background-color: #fafafa !important;
+      }
+      .inputShadow::-webkit-input-placeholder { font-style: italic; }
+      .inputShadow:-moz-placeholder { font-style: italic; }
+      .inputShadow::-moz-placeholder { font-style: italic; }
+      .inputShadow:-ms-input-placeholder { font-style: italic; }
+      .well-card {
+        padding: 0;
+        margin-top: 25px;
+        background: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 1px 2px 10px #ccc;
+        display: none;
+      }
+      .panel-info > .panel-heading {
+        background: rgba(0, 23, 52, 0.9);
+      }
+      .panel-body {
+        padding: 15px 15px 0;
+        background-color: #fff;
+      }
+      .panel-footer {
+        display: inline-block;
+        width: 100%;
+        padding: 10px 15px 0;
+      }
+      .table-user-information > tbody > tr {
+          border-top: 1px solid rgb(221, 221, 221);
+      }
+      .table-user-information > tbody > tr:first-child {
+          border-top: 0;
+      }
+      .table-user-information > tbody > tr > td {
+          border-top: 0;
+      }
+      .toppad {
+        margin-top:20px;
+      }      
+    </style>
+  </head>
+
+  <body onload="init()">
+
+    <div class="row" style="margin-left: 0;margin-right: 0;">
+      <div class="text-center" style="margin: 30px 0 40px 0;">
+        <img src="assets/img/sspm_logo.png" width="100" class="img" alt="logo" />
+      </div>
+      <div class="container">
+        <div class="col-xs-12">
+          <form class="form" id="formSearch" role="form">
+            <div class="form-group">  
+              <input type="text" name="inputSearch" id="inputSearch" class="form-control inputShadow" placeholder="Buscar por matricula o número de licencia..." required />
+            </div>
+          </form>
+          <h4 id="textEmpty"></h4>
+          <div class="panel panel-info well-card" id="well-card">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <span class="name"></span> <span class="firstName"></span> <span class="lastName"></span>
+                <span class="label label-danger pull-right">Pendiente de pago</span>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12"> 
+                  <table class="table table-user-information">
+
+                    <tbody>
+                      <tr>
+                        <td>Nombre completo:</td>
+                        <td><span class="name"></span> <span class="firstName"></span> <span class="lastName"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Número de infracción:</td>
+                        <td><span class="fine"></td>
+                      </tr>
+                      <tr>
+                        <td>Número de licencia:</td>
+                        <td><span class="numberLicense"></td></tr>
+                      <tr>
+                      <tr>
+                        <td>Tipo de licencia:</td>
+                        <td><span class="typeLicense"></td></tr>
+                      <tr>
+                        <td>Fecha de infracción:</td>
+                        <td><span class="dateFine"></td>
+                      </tr>
+                      <tr>
+                        <td>Número de placas:</td>
+                        <td><span class="plate"></td>
+                      </tr>
+                      <tr>
+                        <td>Número de artículo:</td>
+                        <td><span class="article"></span> <span class="part"></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <div class="col-xs-12"> 
+                <table class="table table-user-information">
+                  <tbody>
+                    <tr>
+                      <td>Tipo de placa:</td>
+                      <td><span class="typePlate"></td>
+                    </tr>
+                    <tr>
+                      <td>Tipo de vehiculo:</td>
+                      <td><span class="typeVehicle"></span></td>
+                      </tr>
+                    <tr>
+                      <td>Placa: </td>
+                      <td><span class="plate"></td>
+                    </tr>
+                    <tr>
+                      <tr>
+                        <td>Marca:</td>
+                        <td><span class="brand"></span></td>
+                        <td>Modelo:</td>
+                        <td><span class="model"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Serie:</td>
+                        <td><span class="serie"></span></td>
+                        <td>Color:</td>
+                        <td><span class="color"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Servicio</td>
+                        <td><span class="service"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Estado</td>
+                        <td><span class="state"></span></td>
+                      </tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+            <div class="pull-right">
+              <span style="color: #999;">Registrar una nueva infracción -> </span>
+              <a href="fine.html" class="btn btn-lg btn-primary" style="background: rgba(0, 23, 52, 0.9);">
+                <img src="assets/img/plus.png" width="21" />
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/snackbar.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {          
+        $('#inputSearch').keypress(function(event) {
+          if ( event.which == 13 ) {
+
+            event.preventDefault();      
+            var search = $('#inputSearch').val();
+            $(".well-card").css("display", "none");
+            $("#well-card").load(location.href+" #well-card>*","");
+            
+            $.ajax({
+              type:'GET',
+              //url: "service.php?search=" + search,
+              url: 'http://joshuaranda.website/sspm/infraccion/service.php',
+              async: true,
+              crossDomain: true,
+              dataType: "xml",            
+              cache: false,
+              success: function(data) {
+                if(data) { $(".well-card").css("display", "block"); }
+                else { $("#textEmpty").text("No se encontró historial"); }
+              },
+              error : function(xhr, textStatus, errorThrown ) {
+                if (textStatus == 'timeout') {
+                  this.tryCount++;
+                  if (this.tryCount <= this.retryLimit) {
+                    $.ajax(this);
+                    return;
+                  }            
+                  return;
+                }
+                if (xhr.status == 500) {
+                  console.log(xhr.responseText);
+                } else {
+                  console.log(xhr.responseText);
+                }
+              }  
+            }).then(function(data) {
+
+              var xml = data;
+              
+              $.each($(xml).find('Infraccion'), function(key, value) {
+                $('.fine').append("- ").append(value).append("<br/>");
+              });
+              
+              $.each($(xml).find('Fecha'), function(key, value) {
+                $('.dateFine').append("- ").append(value).append("<br/>");
+              });
+              
+              $.each($(xml).find('Placa'), function(key, value) {
+                $('.plate').append("- ").append(value).append("<br/>");
+              });
+              
+              $.each($(xml).find('Tipo'), function(key, value) {
+                $('.typeLicense').append("- ").append(value).append("<br/>");
+              });
+              
+              $.each($(xml).find('Articulo'), function(key, value) {
+                $('.article').append("<br/> - ").append(value);
+              });
+              $.each($(xml).find('Fraccion'), function(key, value) {
+                $('.part').append(value);
+              });
+
+              $.each($(xml).find('NombresConductor'), function(key, value) {
+                if(key < 1) {
+                  $('.name').append(value);
+                }
+              });
+              $.each($(xml).find('MaternoConductor'), function(key, value) {
+                if(key < 1) {
+                  $('.lastName').append(value);
+                }
+              });
+              $.each($(xml).find('NombresConductor1'), function(key, value) {
+                if(key < 1) {
+                  $('.firstName').append(value);
+                }
+              });
+
+              $.each($(xml).find('Licencia'), function(key, value) {
+                $('.numberLicense').append("- ").append(value).append("<br/>");
+              });  
+
+              $.each($(xml).find('Estado'), function(key, value) {
+                $('.state').append("- ").append(value).append("<br/>");
+              }); 
+
+              $.each($(xml).find('TipoPlaca'), function(key, value) {
+                $('.typePlate').append("- ").append(value).append("<br/>");
+              }); 
+
+              $.each($(xml).find('TipoVehiculo'), function(key, value) {
+                $('.typeVehicle').append("- ").append(value).append("<br/>");
+              }); 
+
+              $.each($(xml).find('Marca'), function(key, value) {
+                $('.brand').append("- ").append(value).append("<br/>");
+              }); 
+
+              $.each($(xml).find('Modelo'), function(key, value) {
+                $('.model').append("- ").append(value).append("<br/>");
+              });  
+
+              $.each($(xml).find('Serie'), function(key, value) {
+                $('.serie').append("- ").append(value).append("<br/>");
+              }); 
+
+              $.each($(xml).find('Color'), function(key, value) {
+                $('.color').append("- ").append(value).append("<br/>");
+              }); 
+
+              $.each($(xml).find('Servicio'), function(key, value) {
+                $('.service').append("- ").append(value).append("<br/>");
+              });           
+            });
+          }
+        });           
+        $("#other").click(function() {
+          $("#inputSearch").keypress();
+        });
+      });
+    </script>
+  </body>
+</html> 
