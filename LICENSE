@@ -178,11 +178,8 @@
    APPENDIX: How to apply the Apache License to your work.
 
       To apply the Apache License to your work, attach the following
-<<<<<<< HEAD
+
       boilerplate notice, with the fields enclosed by brackets "[]"
-=======
-      boilerplate notice, with the fields enclosed by brackets "{}"
->>>>>>> 488a90b562a6fc7c3997186ccc9c9788f7a065fa
       replaced with your own identifying information. (Don't include
       the brackets!)  The text should be enclosed in the appropriate
       comment syntax for the file format. We also recommend that a
@@ -190,11 +187,7 @@
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-<<<<<<< HEAD
    Copyright 2012-2014 Adobe Systems Incorporated.
-=======
-   Copyright {yyyy} {name of copyright owner}
->>>>>>> 488a90b562a6fc7c3997186ccc9c9788f7a065fa
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -207,7 +200,3 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-<<<<<<< HEAD
-=======
-
->>>>>>> 488a90b562a6fc7c3997186ccc9c9788f7a065fa
