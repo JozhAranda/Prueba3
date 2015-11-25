@@ -219,8 +219,9 @@
               crossDomain: true,
               dataType: "xml",            
               cache: false,
-              beforeSend: function(){   $(".loader").css("display", "block").fadeOut("slow"); },
+              beforeSend: function(){   $(".loader").fadeOut("200").css("display", "block"); },
               success: function(data) {
+                $(".loader").css("display", "none");
                 if(data) { $(".well-card").css("display", "block"); }
                 else { $("#textEmpty").text("No se encontró historial"); }
               },
