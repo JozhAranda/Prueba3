@@ -18,7 +18,7 @@
         background-position-y: 20px;
       }
       .snackbar {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 23, 52, 0.8);
         padding: 7px;
         color: #fff;
       }
@@ -79,7 +79,7 @@
           $.ajax({
             method: 'POST',
             //url: 'http://joshuaranda.website/sspm/actasBackend/session.php',
-            //url: window.location.origin + '/core/session.php',
+            url: window.location.origin + '/core/session.php',
             async: true,
             crossDomain: true,
             data: {
@@ -103,13 +103,28 @@
                 }); 
               }  
             },
-            error: function(jqXHR, textStatus, errorThrown ) {   
-              $("#submitButton").val('Iniciar sesión');       
-              $.snackbar({
-                content: "Ocurrio un error, no desistas e intentalo nuevamente", 
-                timeout: 5000
-              });           
-            }
+            error : function(xhr, textStatus, errorThrown ) {
+              if (textStatus == 'timeout') {
+                this.tryCount++;
+                if (this.tryCount <= this.retryLimit) {
+                  $.ajax(this);
+                  return;
+                }            
+                return;
+              }
+              $("#submitButton").val('Iniciar sesión'); 
+              if (xhr.status == 500) {      
+                $.snackbar({
+                  content: "Ocurrio un error, no desistas e intentalo nuevamente", 
+                  timeout: 5000
+                }); 
+              } else {       
+                $.snackbar({
+                  content: "Ocurrio un error, no desistas e intentalo nuevamente", 
+                  timeout: 5000
+                }); 
+              }
+            } 
           });
 
           return false; 

@@ -18,7 +18,7 @@
         background-position-y: 20px;
       }
       .snackbar {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 23, 52, 0.8);
         padding: 7px;
         color: #fff;
       }
@@ -121,7 +121,7 @@
             <div class="row setup-content" id="step-1">
                 <div class="col-xs-12">
                     <div class="col-md-12">
-                        <h3>Automovilista</h3>
+                        <h3>Automovilista</h3><h4><span id="Lat"></span>, <span id="Long"></span></h4>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Nombre completo</label> 
                             <input type="text" name="fullName" id="fullName" class="form-control inputShadow" placeholder="Nombre completo del conductor" maxlength="55" required />
@@ -169,7 +169,7 @@
                         <div class="clearfix"></div>
                         <div class="form-group col-xs-2 col-xs-offset-5 text-center">
                           <button class="btn btn-primary nextBtn" type="button">
-                            <img src="assets/img/arrow.png" width="28" />
+                            <img src="assets/img/arrow.png" width="24" />
                           </button>
                         </div>
                     </div>
@@ -222,7 +222,7 @@
                         <div class="clearfix"></div>
                         <div class="form-group col-xs-2 col-xs-offset-5 text-center">
                           <button class="btn btn-primary nextBtn" type="button">
-                            <img src="assets/img/arrow.png" width="28" />
+                            <img src="assets/img/arrow.png" width="24" />
                           </button>
                         </div>
                     </div>
@@ -267,7 +267,7 @@
                         <div class="clearfix"></div>
                         <div class="form-group col-xs-2 col-xs-offset-5 text-center">
                           <button class="btn btn-primary nextBtn" type="button">
-                            <img src="assets/img/arrow.png" width="28" />
+                            <img src="assets/img/arrow.png" width="24" />
                           </button>
                         </div>
                     </div>
@@ -284,7 +284,7 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group col-xs-2 col-xs-offset-5 text-center">
-                          <button class="btn btn-primary" type="submit"><img src="assets/img/save.png" width="28" /></button>
+                          <button class="btn btn-primary" type="submit"><img src="assets/img/save.png" width="24" /></button>
                         </div>
                     </div>
                 </div>
@@ -300,50 +300,54 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/snackbar.min.js"></script>
+    <script src="assets/js/wizard.js"></script>
     <script type="text/javascript">
-      $(document).ready(function () {
-        var navListItems = $('div.setup-panel div a'),
-        allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn');
-        allWells.hide();
-
-        navListItems.click(function (e) {
-          e.preventDefault();
-          var $target = $($(this).attr('href')),
-          $item = $(this);
-
-          if (!$item.hasClass('disabled')) {
-            navListItems.removeClass('btn-primary').addClass('btn-default');
-            $item.addClass('btn-primary');
-            allWells.hide();
-            $target.show();
-            $target.find('input:eq(0)').focus();
-          }
-        });
-
-        allNextBtn.click(function(){
-          var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='url']"),
-          isValid = true;
-
-          $(".form-group").removeClass("has-error");
-          for(var i=0; i<curInputs.length; i++){
-            if (!curInputs[i].validity.valid){
-              isValid = false;
-              $(curInputs[i]).closest(".form-group").addClass("has-error");
+      $(function () {
+        var queryString = new Array();
+        if (queryString.length == 0) {
+          if (window.location.search.split('?').length > 1) {
+            var params = window.location.search.split('?')[1].split('&');
+            for (var i = 0; i < params.length; i++) {
+              var key = params[i].split('=')[0];
+              var value = decodeURIComponent(params[i].split('=')[1]);
+              queryString[key] = value;
             }
           }
-          if (isValid) {
-            nextStepWizard.removeAttr('disabled').trigger('click');
-          }
-        });
-
-        $('div.setup-panel div a.btn-primary').trigger('click');
-      });
+        }
+        if (queryString["plate"] != null && queryString["fullName"] != null) {
+          $('#plateVehicle').val(queryString["plate"]);
+          $('#typeLicense').val(queryString["typeLicense"]);
+          $('#fullName').val(queryString["fullName"]);
+          $('#numberLicense').val(queryString["numberLicense"]);
+          $('#state').val(queryString["state"]);
+          $('#typePlate').val(queryString["typePlate"]);
+          $('#typeVehicle').val(queryString["typeVehicle"]);
+          $('#brandVehicle').val(queryString["brand"]);
+          $('#modelVehicle').val(queryString["model"]);
+          $('#lineVehicle').val(queryString["serie"]);
+          $('#colorVehicle').val(queryString["color"]);
+          $('#serviceVehicle').val(queryString["service"]);
+        }
+      });  
     </script>
-
+    <script type="text/javascript">
+      var Geo={};
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      }
+      function success(position) {
+        Geo.lat = position.coords.latitude;
+        Geo.lng = position.coords.longitude;
+        populateHeader(Geo.lat, Geo.lng);
+      }
+      function error(){
+        console.log("Geocoder failed");
+      }
+      function populateHeader(lat, lng){
+        $('#Lat').html(lat);
+        $('#Long').html(lng);
+      }
+    </script>
     <script type="text/javascript">
       var desiredWidth;
         $(document).ready(function() {
@@ -361,8 +365,7 @@
           $("#swatch"+i).css("background-color","rgb("+colorArr[i][0]+","+colorArr[i][1]+","+colorArr[i][2]+")");
           console.log($("#swatch"+i).css("background-color"));
         }
-      } 
-      
+      }       
       function gotPic(event) {
         if(event.target.files.length == 1 && event.target.files[0].type.indexOf("image/") == 0) {
           $("#yourimage").attr("src",URL.createObjectURL(event.target.files[0]));
