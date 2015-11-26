@@ -50,6 +50,7 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
 
+    <plugin name="com.cesidiodibenedetto.filechooser" spec="1.0.0" source="pgb" />
     <gap:plugin name="de.appplant.cordova.plugin.printer" />
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->

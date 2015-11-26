@@ -43,16 +43,16 @@
         </div>
         <div class="col-md-12">
             <div class="wrap">
-                <form class="login">
+                <form class="login" role="form">
                   <input type="text" name="username" id="username" class="form-control inputShadow" placeholder="Introduzca su nombre de usuario" />
                   <input type="password" name="password" id="password" class="form-control inputShadow" placeholder="Introduzca su contraseña" />
+                  <input type="hidden" name="uuid" id="uuid" required />
                   <input type="submit" class="btn btn-sm btn-primary" value="Iniciar sesión" id="submitButton"/>
                 </form>
             </div>
         </div>
       </div>
     </div>
-    <p id="deviceProperties">Loading device properties...</p>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="cordova.js" type="text/javascript"></script>
@@ -65,11 +65,7 @@
       function onDeviceReady() {
         var element = document.getElementById('deviceProperties');
 
-        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
-                            'Device PhoneGap: ' + device.phonegap + '<br />' + 
-                            'Device Platform: ' + device.platform + '<br />' + 
-                            'Device UUID: '     + device.uuid     + '<br />' + 
-                            'Device Version: '  + device.version  + '<br />';
+        element.value = device.uuid;
       }
     </script>
 
