@@ -6,6 +6,7 @@ $(document).ready(function() {
       var search = $('#inputSearch').val();
       $(".well-card").css("display", "none");
       $("#well-card").load(location.href+" #well-card>*","");
+      $("#textEmpty").text("");
       
       $.ajax({
         type:'GET',

@@ -1,0 +1,31 @@
+
+.headerLogo {
+	margin: 0 auto;
+	margin-top: 15%;
+	width: 180px;
+} 
+@media only screen and (max-width: 769px) {
+	.headerLogo {
+	  margin-top: 30%;
+	}
+}
+@media only screen and (max-width: 598px) {
+	.headerLogo {
+    	margin-top: 2%;
+    	width: 125px;
+    	margin-bottom: -35px;
+	}
+}
+@media only screen and (max-width: 360px) {
+	.headerLogo {
+		width: 150px;
+	  	margin-top: 20%;
+  	    margin-bottom: 0;
+	}
+	.col-xs-6 {
+		width: 100%;
+	}
+	.table-user-information > tbody > tr > td {
+	    display: inline-block;
+	}
+}
