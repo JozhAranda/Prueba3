@@ -47,7 +47,7 @@
                   <input type="text" name="username" id="username" class="form-control inputShadow" placeholder="Introduzca su nombre de usuario" />
                   <input type="password" name="password" id="password" class="form-control inputShadow" placeholder="Introduzca su contraseña" />
                   <input type="hidden" name="uuid" id="uuid" required />
-                  <input type="submit" class="btn btn-sm btn-primary" value="Iniciar sesión" id="submitButton"/>
+                  <input type="submit" class="btn btn-sm btn-primary" value="Iniciar sesión" id="submitSesion"/>
                 </form>
             </div>
         </div>
@@ -63,33 +63,34 @@
     <script type="text/javascript" charset="utf-8">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
-        var element = document.getElementById('deviceProperties');
-
+        var element = document.getElementById('uuid');
         element.value = device.uuid;
       }
     </script>
 
     <script type="text/javascript">
       $(function() {
-        $('#submitButton').on('click touch', function(event) {
+        $('#submitSesion').on('click touch', function(event) {
         
           event.preventDefault();       
           
-          var username  = $('#username').val();
-          var password  = $('#password').val();
+          var NombreUsuario  = $('#username').val();
+          var Contrasena  = $('#password').val();
+          var Imei  = $('#uuid').val();
 
           $.ajax({
             method: 'POST',
-            //url: 'http://joshuaranda.website/sspm/actasBackend/session.php',
+            url: 'http://10.10.216.30:88/Api/Default1/',
             //url: window.location.origin + '/core/session.php',
             async: true,
             crossDomain: true,
             data: {
-              username: username,
-              password: password
+              NombreUsuario: NombreUsuario,
+              Contrasena: Contrasena,
+              Imei: Imei
             },
             cache: false,
-            beforeSend: function(){ $("#submitButton").val('Iniciando...'); },
+            beforeSend: function(){ $("#submitSesion").val('Iniciando...'); },
             success: function(data) {           
               if(data) {
 
@@ -98,7 +99,7 @@
               
               } else {
 
-                $("#submitButton").val('Iniciar sesión');
+                $("#submitSesion").val('Iniciar sesión');
                 $.snackbar({
                   content: "Invalido usuario y/o contraseña.", 
                   timeout: 5000
@@ -114,7 +115,7 @@
                 }            
                 return;
               }
-              $("#submitButton").val('Iniciar sesión'); 
+              $("#submitSesion").val('Iniciar sesión'); 
               if (xhr.status == 500) {      
                 $.snackbar({
                   content: "Ocurrio un error, no desistas e intentalo nuevamente", 
