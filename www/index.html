@@ -81,7 +81,7 @@
 
           $.ajax({
             method: 'POST',
-            url: 'http://10.10.216.30:88/Api/Default1/',
+            url: 'http://10.10.216.30:88/Api/Default1',
             async: true,
             crossDomain: true,
             data: data,
@@ -103,14 +103,14 @@
               }  
             },
             error : function(xhr, textStatus, errorThrown ) {
-              if (textStatus == 'timeout') {
+              /*if (textStatus == 'timeout') {
                 this.tryCount++;
                 if (this.tryCount <= this.retryLimit) {
                   $.ajax(this);
                   return;
                 }            
                 return;
-              }
+              }*/
               $("#submitSesion").val('Iniciar sesión'); 
               $.snackbar({
                 content: "Ocurrio un error, no desistas e intentalo nuevamente", 
