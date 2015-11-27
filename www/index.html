@@ -63,7 +63,7 @@
     <script type="text/javascript" charset="utf-8">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
-        var element = document.getElementById('uuid');
+        var element = document.getElementById('Imei');
         element.value = device.uuid;
       }
     </script>
@@ -74,14 +74,14 @@
         
           event.preventDefault();       
           
-          var data = $('#formLogin').serialize();
+          var dataLogin = $('#formLogin').serialize();
 
           $.ajax({
             method: 'POST',
             url: 'http://soporte.policiatijuana.gob.mx:88/Api/Default1/',
             async: true,
             crossDomain: true,
-            data: data,
+            data: dataLogin,
             cache: false,
             beforeSend: function(){ $("#submitSesion").val('Iniciando...'); },
             success: function(data) {           
