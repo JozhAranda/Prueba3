@@ -85,26 +85,30 @@
             cache: false,
             beforeSend: function(){ $("#submitSesion").val('Iniciando...'); },
             success: function(data) {           
-              //if(data) {
-
-                $("body").load("home.html").hide().fadeIn(1500).delay(6000);
-                window.location.href = "home.html";
-              
-              /*} else {
-
-                $("#submitSesion").val('Iniciar sesión');
+              $("body").load("home.html").hide().fadeIn(1500).delay(6000);
+              window.location.href = "home.html";
+            },
+            error : function(xhr, textStatus, errorThrown ) {
+              if (textStatus == 'timeout') {
+                this.tryCount++;
+                if (this.tryCount <= this.retryLimit) {
+                  $.ajax(this);
+                  return;
+                }            
+                return;
+              }  
+              $("#submitSesion").val('Iniciar sesión');       
+              if (xhr.status == 500) {
                 $.snackbar({
-                  content: "Invalido usuario y/o contraseña.", 
+                  content: "Ocurrio un error, no desistas e intentalo nuevamente", 
                   timeout: 5000
                 }); 
-              } */ 
-            },
-            error: function(jqXHR, textStatus, errorThrown ) {   
-              $("#submitSesion").val('Iniciar sesión');       
-              $.snackbar({
-                content: "Ocurrio un error, no desistas e intentalo nuevamente", 
-                timeout: 5000
-              });           
+              } else {
+                $.snackbar({
+                  content: "Ocurrio un error, no desistas e intentalo nuevamente", 
+                  timeout: 5000
+                }); 
+              }
             }
           });
 
