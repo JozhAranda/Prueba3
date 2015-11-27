@@ -81,14 +81,27 @@
   <body onload="init()">
 
     <div class="row" style="margin-left: 0;margin-right: 0;">
-      <div class="text-center" style="margin: 30px 0 40px 0;">
-        <img src="assets/img/sspm_logo.png" width="120" class="img" alt="logo" />
-      </div>
+      <div class="col-xs-12 headerLogo"style="margin: 30px 0 40px 0;">
+        <div class="col-xs-6">
+          <img src="assets/img/sspm_logo.png" class="img img-responsive headerImg" style="width: 120px;margin-top: 25px;" alt="logo" />
+        </div>
+        <div class="col-xs-6">
+          <p class="headerText">
+            Sistema de Control de
+            <span style="color: rgba(0, 23, 52, 0.8);font-size: 24px;font-weight: 600;"> Infracciones de Transito</span>
+          </p>
+        </div>
+      </div>      
       <div class="container">
         <div class="col-xs-12">
           <form class="form" id="formSearch" role="form">
-            <div class="form-group">  
+            <div class="input-group">  
               <input type="text" name="inputSearch" id="inputSearch" class="form-control inputShadow" placeholder="Buscar por matricula o número de licencia..." required />
+              <span class="input-group-btn">
+                <button type="submit" class="btn" id="btnSearch" style="height: 50px;">
+                  <img src="assets/img/arrow.png" width="21">
+                </button>
+              </span>
             </div>
           </form>
           <h4 id="textEmpty"></h4>
@@ -161,7 +174,7 @@
             </div>
 
           </div>
-          <div class="pull-right" style="margin-bottom: 40px;">
+          <div class="pull-right" style="margin: 25px 0 40px;">
             <span style="opacity: 0;font-size: 0;">
               <span id="name"></span> <span id="firstName"></span> <span id="lastName"></span>
             </span>

@@ -38,15 +38,25 @@
     <div id="loginPage" data-role="page" class="container loginPage">
 
       <div class="row" style="margin-left: 0;margin-right: 0;">
-        <div class="">
-          <img src="assets/img/sspm_logo.png" class="img img-responsive headerLogo" alt="logo" />
+        <div class="col-xs-12 headerLogo">
+          <div class="col-xs-6">
+            <img src="assets/img/sspm_logo.png" class="img img-responsive headerImg" alt="logo" />
+          </div>
+          <div class="col-xs-6">
+            <p class="headerText">
+              Sistema de Control de
+              <span style="color: rgba(0, 23, 52, 0.8);font-size: 24px;font-weight: 600;"> Infracciones de Transito</span>
+            </p>
+          </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-xs-12">
             <div class="wrap">
                 <form class="login" id="formLogin" role="form">
                   <input type="text" name="NombreUsuario" id="NombreUsuario" class="form-control inputShadow" placeholder="Introduzca su nombre de usuario" />
                   <input type="password" name="Contrasena" id="Contrasena" class="form-control inputShadow" placeholder="Introduzca su contraseña" />
                   <input type="hidden" name="Imei" id="Imei" />
+                  <input type="hidden" name="Latitud" id="latitude" />
+                  <input type="hidden" name="Longitud" id="longitude" />
                   <input type="submit" class="btn btn-sm btn-primary" value="Iniciar sesión" id="submitSesion"/>
                 </form>
             </div>
@@ -59,6 +69,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/snackbar.min.js"></script>
+    <script src="assets/js/geolocation.js"></script>
 
     <script type="text/javascript" charset="utf-8">
       document.addEventListener("deviceready", onDeviceReady, false);

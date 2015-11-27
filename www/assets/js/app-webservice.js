@@ -1,6 +1,6 @@
 $(document).ready(function() {          
   $('#inputSearch').keypress(function(event) {
-    if ( event.which == 13 ) {
+    //if ( event.which == 13 ) {
 
       event.preventDefault();      
       var search = $('#inputSearch').val();
@@ -141,9 +141,10 @@ $(document).ready(function() {
           }
         });           
       });
-    }
+    //}
   });           
-  $("#other").click(function() {
+  $("#btnSearch").on("click touch",function(event) {
+    event.preventDefault();
     $("#inputSearch").keypress();
   });
 });

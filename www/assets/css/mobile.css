@@ -2,8 +2,20 @@
 .headerLogo {
 	margin: 0 auto;
 	margin-top: 15%;
-	width: 180px;
 } 
+.headerImg {
+	float: right;
+	margin-right: 50px;
+	width: 180px;
+}
+.headerText {
+    width: 280px;
+    font-size: 28px;
+    float: left;
+    margin-top: 35px;
+    margin-left: -70px;
+}
+
 @media only screen and (max-width: 769px) {
 	.headerLogo {
 	  margin-top: 30%;
@@ -12,16 +24,29 @@
 @media only screen and (max-width: 598px) {
 	.headerLogo {
     	margin-top: 2%;
-    	width: 125px;
-    	margin-bottom: -35px;
+    	margin-bottom: -40px;
+	}
+	.headerImg {
+		float: right;
+		margin-right: 80px;
+		width: 120px;
+	    margin-top: 0 !important;
+	}
+	.headerText {
+	    margin-top: 10px;
+	    margin-left: -80px;
 	}
 }
 @media only screen and (max-width: 360px) {
 	.headerLogo {
-		width: 150px;
-	  	margin-top: 20%;
-  	    margin-bottom: 0;
+    	margin-top: 10%;
+    	margin-bottom: -40px;
 	}
+	.headerText {
+	    margin-top: 0;
+	    margin-left: 0;
+	}
+
 	.col-xs-6 {
 		width: 100%;
 	}
