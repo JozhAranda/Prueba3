@@ -85,19 +85,19 @@
             cache: false,
             beforeSend: function(){ $("#submitSesion").val('Iniciando...'); },
             success: function(data) {           
-              if(data) {
+              //if(data) {
 
                 $("body").load("home.html").hide().fadeIn(1500).delay(6000);
                 window.location.href = "home.html";
               
-              } else {
+              /*} else {
 
                 $("#submitSesion").val('Iniciar sesión');
                 $.snackbar({
                   content: "Invalido usuario y/o contraseña.", 
                   timeout: 5000
                 }); 
-              }  
+              } */ 
             },
             error: function(jqXHR, textStatus, errorThrown ) {   
               $("#submitSesion").val('Iniciar sesión');       
