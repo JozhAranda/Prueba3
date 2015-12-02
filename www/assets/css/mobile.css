@@ -21,7 +21,7 @@
 	  margin-top: 30%;
 	}
 }
-@media only screen and (max-width: 598px) {
+@media only screen and (max-width: 690px) {
 	.headerLogo {
     	margin-top: 2%;
     	margin-bottom: -40px;
@@ -37,7 +37,7 @@
 	    margin-left: -80px;
 	}
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 412px) {
 	.headerLogo {
     	margin-top: 10%;
     	margin-bottom: -40px;
