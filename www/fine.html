@@ -314,30 +314,29 @@
                     </div>
                 </div>
             </div>
-        </form>
             <div class="row setup-content" id="step-4">
-                <div class="col-xs-12">
-                    <div class="col-md-12">
-                        <h3>Fotografías</h3>
-                        <div class="form-group col-xs-6">
-                          <span class="btn-file grid-file">
-                            <p style="text-align: center;margin-top: 60px;">Selecciona las imagenes</p>
-                            <input type="file" capture="camera" name="photo[]" accept="image/*;capture=camera" id="takePicture" multiple />
-                          </span>
-                        </div>                        
-                        <input type="hidden" id="latitude" name="latitud" />
-                        <input type="hidden" id="longitude" name="latitud" />
-                        <div class="form-group col-xs-6">
-                          <div class="contentImage" id="contentImage"></div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="form-group col-xs-2 col-xs-offset-5 text-center">
-                          <button class="btn btn-primary" id="submitFine" type="submit">
-                            <img src="assets/img/save.png" width="24" />
-                          </button>
-                        </div>
-                    </div>
+              <div class="col-xs-12">
+                <div class="col-md-12">
+                  <h3>Fotografías</h3>
+                  <div class="form-group col-xs-6">
+                    <span class="btn-file grid-file">
+                      <p style="text-align: center;margin-top: 60px;">Selecciona las imagenes</p>
+                      <input type="file" capture="camera" name="photo[]" accept="image/*;capture=camera" id="takePicture" multiple />
+                    </span>
+                  </div>                        
+                  <input type="hidden" id="latitude" name="latitud" />
+                  <input type="hidden" id="longitude" name="latitud" />
+                  <div class="form-group col-xs-6">
+                    <div class="contentImage" id="contentImage"></div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="form-group col-xs-2 col-xs-offset-5 text-center">
+                    <button class="btn btn-primary" id="submitFine" type="submit">
+                      <img src="assets/img/save.png" width="24" />
+                    </button>
+                  </div>
                 </div>
+              </div>
             </div>
         </form>
       </div>
@@ -353,6 +352,7 @@
     <script src="assets/js/wizard.js"></script>
     <script src="assets/js/image.js"></script>
     <script src="assets/js/geolocation.js"></script>
+    <script src="assets/js/app-api.js"></script>
     <script type="text/javascript">
       $(function () {
         var queryString = new Array();
@@ -424,20 +424,20 @@
         }
       }
     </script-->
-    <script type="text/javascript">
-    $(function (){
-      $('#submitFine').on('click touch', function(event) {
-        event.preventDefault();
-        var abc = $('#formFine').serialize();
-        var def = new Array();
-        var i = 0;
-        var images = $('.contentImage').children('div').children('img').map(function(){
-          def[i] = $(this).attr('src');
-          i++;
-        }).get();
-        console.log(abc + def);
-      });      
-    });
-    </script>
+    <!--script type="text/javascript">
+      $(function (){
+        $('#submitFine').on('click touch', function(event) {
+          event.preventDefault();
+          var abc = $('#formFine').serialize();
+          var def = new Array();
+          var i = 0;
+          var images = $('.contentImage').children('div').children('img').map(function(){
+            def[i] = $(this).attr('src');
+            i++;
+          }).get();
+          console.log(abc + def);
+        });      
+      });
+    </script-->
   </body>
 </html>

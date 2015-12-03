@@ -23,8 +23,8 @@
 }
 @media only screen and (max-width: 690px) and (orientation: landscape) {
 	.headerLogo {
-    	margin-top: 2%;
-    	margin-bottom: -40px;
+		margin-top: 2% !important;
+    	margin-bottom: 10px !important;
 	}
 	.headerImg {
 		float: right;
@@ -39,18 +39,36 @@
 }
 @media only screen and (max-width: 460px) {
 	.headerLogo {
-    	margin-top: 10%;
-    	margin-bottom: -40px;
+    	margin-top: 10% !important;
+    	margin-bottom: 0 !important;
 	}
 	.headerText {
 	    margin-top: 0;
 	    margin-left: 0;
 	}
-
+	.headerImg {
+		float: right;
+		margin-right: 80px;
+		margin-top: 0 !important;
+	}
 	.col-xs-6 {
 		width: 100%;
 	}
 	.table-user-information > tbody > tr > td {
 	    display: inline-block;
+	}
+}
+@media only screen and (max-width: 420px) {
+	.headerImg {
+		float: right;
+		margin-right: 100px;
+		margin-top: 0 !important;
+	}
+}
+@media only screen and (max-width: 360px) {
+	.headerImg {
+		float: right;
+		margin-right: 80px;
+		margin-top: 0 !important;
 	}
 }
