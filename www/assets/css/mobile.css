@@ -21,7 +21,7 @@
 	  margin-top: 30%;
 	}
 }
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 690px) and (orientation: landscape) {
 	.headerLogo {
     	margin-top: 2%;
     	margin-bottom: -40px;
@@ -37,7 +37,7 @@
 	    margin-left: -80px;
 	}
 }
-@media only screen and (max-width: 412px) {
+@media only screen and (max-width: 460px) {
 	.headerLogo {
     	margin-top: 10%;
     	margin-bottom: -40px;

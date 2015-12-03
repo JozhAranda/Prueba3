@@ -1,8 +1,8 @@
 $(document).ready(function() {          
   $('#inputSearch').keypress(function(event) {
-    if ( event.which == 13 ) {
-
-      event.preventDefault();      
+    event.preventDefault(); 
+    if ( event.which == 13 && $(this).val() ) {
+     
       var search = $('#inputSearch').val();
       $(".well-card").css("display", "none");
       $("#well-card").load(location.href+" #well-card>*","");
@@ -141,10 +141,8 @@ $(document).ready(function() {
           }
         });           
       });
+    } else {
+      $("#textEmpty").text("No se encontró historial");
     }
-  });           
-  $("#btnSearch").on("click touch",function(event) {
-    event.preventDefault();
-    $("#inputSearch").keypress();
   });
 });
