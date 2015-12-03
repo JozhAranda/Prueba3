@@ -1,8 +1,9 @@
 $(document).ready(function() {          
   $('#inputSearch').keypress(function(event) {
-    event.preventDefault(); 
-    if ( event.which == 13 && $(this).val() ) {
-     
+
+    if ( event.which === 13 && $(this).val() ) {
+    
+      event.preventDefault();  
       var search = $('#inputSearch').val();
       $(".well-card").css("display", "none");
       $("#well-card").load(location.href+" #well-card>*","");
@@ -23,7 +24,7 @@ $(document).ready(function() {
           else { $("#textEmpty").text("No se encontró historial"); }
         },
         error : function(xhr, textStatus, errorThrown ) {
-          if (textStatus == 'timeout') {
+          if (textStatus === 'timeout') {
             this.tryCount++;
             if (this.tryCount <= this.retryLimit) {
               $.ajax(this);
@@ -31,7 +32,7 @@ $(document).ready(function() {
             }            
             return;
           }
-          if (xhr.status == 500) {
+          if (xhr.status === 500) {
             console.log(xhr.responseText);
           } else {
             console.log(xhr.responseText);
@@ -141,8 +142,6 @@ $(document).ready(function() {
           }
         });           
       });
-    } else {
-      $("#textEmpty").text("No se encontró historial");
     }
   });
 });
