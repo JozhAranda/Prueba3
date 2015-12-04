@@ -68,7 +68,8 @@
 @media only screen and (max-width: 360px) {
 	.headerImg {
 		float: right;
-		margin-right: 80px;
+		margin-right: 70px;
 		margin-top: 0 !important;
+	    width: 120px;
 	}
 }
