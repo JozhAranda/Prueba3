@@ -1,13 +1,18 @@
 $(document).ready(function() {          
   $('#inputSearch').keypress(function(event) {
 
-    if ( event.which === 13 && $(this).val() ) {
+    if ( event.keyCode == 13) {
     
       event.preventDefault();  
       var search = $('#inputSearch').val();
       $(".well-card").css("display", "none");
       $("#well-card").load(location.href+" #well-card>*","");
       $("#textEmpty").text("");
+
+      if(!$(this).val()) {
+        $("#textEmpty").text("Es necesario capturar #licencia o placa."); 
+        return false;
+      }
       
       $.ajax({
         type:'GET',
@@ -47,7 +52,12 @@ $(document).ready(function() {
         });
         
         $.each($(xml).find('Fecha'), function(key, value) {
-          $('.dateFine').append(value).append("<br/>");
+          $('.dateFineTemp').append(value);
+          var abc = $('.dateFineTemp').text();
+          var date = abc.toString().substring(0, 10);
+          var time = abc.toString().substring(11, 16);
+          var res = date + ", " + time;
+          $('.dateFine').append(res).append("<br/>");
         });
         
         $.each($(xml).find('Placa'), function(key, value) {
