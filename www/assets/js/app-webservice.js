@@ -10,14 +10,14 @@ $(document).ready(function() {
       $("#textEmpty").text("");
 
       if(!$(this).val()) {
-        $("#textEmpty").text("Es necesario capturar #licencia o placa."); 
+        $("#textEmpty").text("Es necesario capturar por matrícula o número de licencia..."); 
         return false;
       }
       
       $.ajax({
         type:'GET',
-        //url: "service.php?search=" + search,
-        url: "http://joshuaranda.website/sspm/infraccion/service.php?search=" + search,
+        url: "service.php?search=" + search,
+        //url: "http://joshuaranda.website/sspm/infraccion/service.php?search=" + search,
         async: true,
         crossDomain: true,
         dataType: "xml",            
@@ -67,9 +67,7 @@ $(document).ready(function() {
         });
         
         $.each($(xml).find('Tipo'), function(key, value) {
-          if(key < 1) {
-            $('.typeLicense').append(value).append("<br/>");
-          }
+          $('.typeLicense').append(value).append("<br/>");
         });
         
         $.each($(xml).find('Articulo'), function(key, value) {
