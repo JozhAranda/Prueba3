@@ -8,7 +8,7 @@ $(function() {
 
     $.ajax({
       method: 'POST',
-      url: 'http://soporte.policiatijuana.gob.mx:85/api/Infraccion',
+      url: 'http://soporte.policiatijuana.gob.mx:85/api/Infraccion/',
       async: true,
       crossDomain: true,
       data: dataFine,

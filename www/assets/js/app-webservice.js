@@ -22,7 +22,7 @@ $(document).ready(function() {
         crossDomain: true,
         dataType: "xml",            
         cache: false,
-        beforeSend: function(){   $(".loader").fadeOut("200").css("display", "block"); },
+        beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
         success: function(data) {
           $(".loader").css("display", "none");
           if(data) { $(".well-card").css("display", "block"); }
