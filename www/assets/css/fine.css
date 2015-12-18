@@ -64,7 +64,7 @@ body {
 }
 .btn-circle:focus, .btn-circle:hover {
   background: rgba(0, 23, 52, 0.8) !important;
-}
+}/*
 .pictureImage {
   width: 100%;
   background-color: #f6f6f6;
@@ -104,4 +104,21 @@ body {
   background: white;
   cursor: inherit;
   display: block;
-} 
+}*/ 
+.well-card {
+  padding: 0;
+  margin-top: 25px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 1px 2px 10px #ccc;
+}
+.panel-info > .panel-heading {
+  background: rgba(0, 23, 52, 0.9);
+}
+.panel-body {
+  padding: 15px 15px 0;
+  background-color: #fff;
+}
+.form-control {
+  text-transform: uppercase;
+}

@@ -13,22 +13,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-      .well-card {
-        padding: 0;
-        margin-top: 25px;
-        background: #fff;
-        border: 1px solid #ddd;
-        box-shadow: 1px 2px 10px #ccc;
-      }
-      .panel-info > .panel-heading {
-        background: rgba(0, 23, 52, 0.9);
-      }
-      .panel-body {
-        padding: 15px 15px 0;
-        background-color: #fff;
-      }
-    </style>
   </head>
 
   <body onload="init()">
@@ -94,9 +78,9 @@
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Sexo</label>
                             <select ng-model="gender" name="gender" id="gender" class="form-control inputShadow" required>
-                              <option selected>Sexo del conductor</option>
-                              <option value="MASCULINO">MASCULINO</option>
-                              <option value="FEMENINO">FEMENINO</option>
+                              <option value="">Sexo del conductor</option>
+                              <option value="M">MASCULINO</option>
+                              <option value="F">FEMENINO</option>
                             </select>
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
@@ -154,11 +138,11 @@
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Modelo</label> 
-                            <input type="text" ng-model="modelVehicle" name="modelVehicle" id="modelVehicle" class="form-control inputShadow" placeholder="Modelo del vehiculo" maxlength="55" required />
+                            <input type="text" ng-model="modelVehicle" name="modelVehicle" id="modelVehicle" class="form-control inputShadow" placeholder="Modelo del vehiculo" maxlength="25" required />
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Linea</label> 
-                            <input type="text" ng-model="lineVehicle" name="lineVehicle" id="lineVehicle" class="form-control inputShadow" placeholder="Linea del vehiculo" maxlength="125" required />
+                            <input type="text" ng-model="lineVehicle" name="lineVehicle" id="lineVehicle" class="form-control inputShadow" placeholder="Linea del vehiculo" maxlength="55" required />
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Color</label> 
@@ -203,7 +187,7 @@
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Distrito</label> <!-- iDistrito - BD --> 
-                            <input type="text" ng-model="districtFine" name="districtFine" id="districtFine" class="form-control inputShadow" placeholder="Distrito de la infracción" maxlength="225" required />
+                            <input type="text" ng-model="districtFine" name="districtFine" id="districtFine" class="form-control inputShadow" placeholder="Distrito de la infracción" maxlength="25" required />
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Oficial</label> <!-- iOficial - BD -->  
@@ -331,7 +315,7 @@
                     <div class="contentImage" id="contentImage"></div>
                   </div-->
                   <div class="clearfix"></div>
-                  <div class="form-group col-xs-2 col-xs-offset-5 text-center">
+                  <div class="form-group col-xs-4 col-xs-offset-4 text-center">
                     <button class="btn btn-primary btn-block" id="submitFine" type="submit">
                       <img src="assets/img/save.png" width="24" />
                     </button>
@@ -346,7 +330,6 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/cordova.js" type="text/javascript"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/angular.min.js"></script>

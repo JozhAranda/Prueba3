@@ -67,7 +67,7 @@ $(function () {
   }
   if (queryString["plate"] != null && queryString["fullName"] != null) {
     $('#plateVehicle').val(queryString["plate"]);
-    $('#typeLicense').val(queryString["typeLicense"]);
+    //$('#typeLicense').val(queryString["typeLicense"]);
     $('#fullName').val(queryString["fullName"]);
     $('#numberLicense').val(queryString["numberLicense"]);
     $('#state').val(queryString["state"]);

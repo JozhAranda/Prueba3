@@ -34,7 +34,7 @@ $(function() {
           }); 
         } else {
           $.snackbar({
-            content: "Ocurrio un error, no desistas e intentalo nuevamente", 
+            content: "Usuario y/o contraseña son invalidas, intentalo nuevamente", 
             timeout: 5000
           }); 
         }
