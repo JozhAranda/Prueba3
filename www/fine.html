@@ -61,7 +61,11 @@
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Tipo de licencia</label>
-                            <input type="text" ng-model="typeLicense" name="typeLicense" id="typeLicense" class="form-control inputShadow" placeholder="Tipo de licencia del conductor" maxlength="25" required />
+                            <input type="text" ng-model="typeLicense" name="typeLicense" id="typeLicense" class="form-control inputShadow" placeholder="Tipo de licencia del conductor" maxlength="25" list="typeLicenseList" required />
+                            <!--select ng-model="typeLicense" name="typeLicense" id="typeLicense" class="form-control inputShadow" required>
+                                <option value="">Tipo de licencia del conductor</option>
+                            </select-->
+                            <datalist id="typeLicenseList"></datalist>
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Número de licencia</label>
@@ -118,11 +122,19 @@
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Tipo de vehiculo</label> 
-                            <input type="text" ng-model="typeVehicle" name="typeVehicle" id="typeVehicle" class="form-control inputShadow" placeholder="Tipo de vehiculo" maxlength="55" required />
+                            <input type="text" ng-model="typeVehicle" name="typeVehicle" id="typeVehicle" class="form-control inputShadow" placeholder="Tipo de vehiculo" maxlength="55" list="typeVehicleList" required />
+                            <!--select ng-model="typeVehicle" name="typeVehicle" id="typeVehicle" class="form-control inputShadow" required>
+                                <option value="">Tipo de vehiculo</option>
+                            </select-->
+                            <datalist id="typeVehicleList"></datalist>
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Tipo de placa</label> 
-                            <input type="text" ng-model="typePlate" name="typePlate" id="typePlate" class="form-control inputShadow" placeholder="Tipo de placa del vehiculo" maxlength="25" required />
+                            <input type="text" ng-model="typePlate" name="typePlate" id="typePlate" class="form-control inputShadow" placeholder="Tipo de placa del vehiculo" maxlength="25" list="typePlateList" required />
+                            <!--select ng-model="typePlate" name="typePlate" id="typePlate" class="form-control inputShadow" required>
+                                <option value="">Tipo de placa del vehiculo</option>
+                            </select-->
+                            <datalist id="typePlateList"></datalist>
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Placa</label> 
@@ -134,23 +146,39 @@
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Marca</label> 
-                            <input type="text" ng-model="brandVehicle" name="brandVehicle" id="brandVehicle" class="form-control inputShadow" placeholder="Marca del vehiculo" maxlength="55" required />
+                            <input type="text" ng-model="brandVehicle" name="brandVehicle" id="brandVehicle" class="form-control inputShadow" placeholder="Marca del vehiculo" maxlength="55" list="brandVehicleList" required />
+                            <!--select ng-model="brandVehicle" name="brandVehicle" id="brandVehicle" class="form-control inputShadow" required>
+                                <option value="">Marca del vehiculo</option>
+                            </select-->
+                            <datalist id="brandVehicleList"></datalist>
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Modelo</label> 
-                            <input type="text" ng-model="modelVehicle" name="modelVehicle" id="modelVehicle" class="form-control inputShadow" placeholder="Modelo del vehiculo" maxlength="25" required />
+                            <input type="number" ng-model="modelVehicle" name="modelVehicle" id="modelVehicle" class="form-control inputShadow" placeholder="Modelo del vehiculo" pattern="[0-9]{4}" size="4" required />
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Linea</label> 
-                            <input type="text" ng-model="lineVehicle" name="lineVehicle" id="lineVehicle" class="form-control inputShadow" placeholder="Linea del vehiculo" maxlength="55" required />
+                            <input type="text" ng-model="lineVehicle" name="lineVehicle" id="lineVehicle" class="form-control inputShadow" placeholder="Linea del vehiculo" maxlength="55" list="lineVehicleList" required />
+                            <!--select ng-model="lineVehicle" name="lineVehicle" id="lineVehicle" class="form-control inputShadow" required>
+                                <option value="">Linea del vehiculo</option>
+                            </select-->
+                            <datalist id="lineVehicleList"></datalist>
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Color</label> 
-                            <input type="text" ng-model="colorVehicle" name="colorVehicle" id="colorVehicle" class="form-control inputShadow" placeholder="Color del vehiculo" maxlength="55" required />
+                            <input type="text" ng-model="colorVehicle" name="colorVehicle" id="colorVehicle" class="form-control inputShadow" placeholder="Color del vehiculo" maxlength="55" list="colorVehicleList" required />
+                            <!--select ng-model="colorVehicle" name="colorVehicle" id="colorVehicle" class="form-control inputShadow"required>
+                                <option value="">Color del vehiculo</option>
+                            </select-->
+                            <datalist id="colorVehicleList"></datalist>
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Servicio</label> 
-                            <input type="text" ng-model="serviceVehicle" name="serviceVehicle" id="serviceVehicle" class="form-control inputShadow" placeholder="Servicio del vehiculo" maxlength="55" required />
+                            <input type="text" ng-model="serviceVehicle" name="serviceVehicle" id="serviceVehicle" class="form-control inputShadow" placeholder="Servicio del vehiculo" maxlength="55" list="serviceVehicleList" required />
+                            <!--select ng-model="serviceVehicle" name="serviceVehicle" id="serviceVehicle" class="form-control inputShadow" required>
+                                <option value="">Tipo de servicio del vehiculo</option>
+                            </select-->
+                            <datalist id="serviceVehicleList"></datalist>
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group col-xs-2 col-xs-offset-5 text-center">
@@ -183,7 +211,7 @@
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Estatus</label> 
-                            <input type="text" ng-model="statusFine" name="statusFine" id="statusFine" class="form-control inputShadow" placeholder="Estatus de la infracción" maxlength="55" required />
+                            <input type="text" ng-model="statusFine" name="statusFine" id="statusFine" class="form-control inputShadow" placeholder="Estatus de la infracción" maxlength="55" value="PENDIENTE" required />
                         </div>
                         <div class="form-group col-xs-6 col-sm-4">
                             <label class="control-label">Distrito</label> <!-- iDistrito - BD --> 

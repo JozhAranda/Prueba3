@@ -80,3 +80,44 @@ $(function () {
     $('#serviceVehicle').val(queryString["service"]);
   }
 });
+
+$(function() {
+  $.getJSON("http://soporte.policiatijuana.gob.mx:85/api/catalogos", function(data) {
+
+    var colores = $('#colorVehicleList');
+    $.each(data.colores, function(key, element) {
+      colores.append('<option>'+ element.Color +'</option>');
+    });
+
+    var lineas = $('#lineVehicleList');
+    $.each(data.lineas, function(key, element) {
+      lineas.append('<option>'+ element.Linea +'</option>');
+    });
+
+    var marcas = $('#brandVehicleList');
+    $.each(data.marcas, function(key, element) {
+      marcas.append('<option>'+ element.Marca +'</option>');
+    });
+
+    var tipoLicencia = $('#typeLicenseList');
+    $.each(data.tipolicencia, function(key, element) {
+      tipoLicencia.append('<option>'+ element.TipoLicencia1 +'</option>');
+    });
+
+    var tipoPlaca = $('#typePlateList');
+    $.each(data.tipoplaca, function(key, element) {
+      tipoPlaca.append('<option>'+ element.TipoPlaca1 +'</option>');
+    });
+
+    var tipoServicio = $('#serviceVehicleList');
+    $.each(data.tiposervicio, function(key, element) {
+      tipoServicio.append('<option>'+ element.TipoServicio1 +'</option>');
+    });
+
+    var tipoVehiculo = $('#typeVehicleList');
+    $.each(data.tipovehiculo, function(key, element) {
+      tipoVehiculo.append('<option>'+ element.TipoVehiculo1 +'</option>');
+    });
+
+  });
+});

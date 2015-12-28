@@ -6,13 +6,13 @@
 .headerImg {
 	float: right;
 	margin-right: 50px;
-	width: 180px;
+	width: 160px;
 }
 .headerText {
     width: 280px;
     font-size: 28px;
     float: left;
-    margin-top: 35px;
+    margin-top: 30px;
     margin-left: -70px;
 }
 
@@ -44,12 +44,13 @@
 	}
 	.headerText {
 	    margin-top: 0;
-	    margin-left: 0;
+	    margin-left: 20px;
 	}
 	.headerImg {
 		float: right;
-		margin-right: 80px;
+		margin-right: 100px;
 		margin-top: 0 !important;
+	    width: 140px;
 	}
 	.col-xs-6 {
 		width: 100%;
@@ -63,13 +64,17 @@
 		float: right;
 		margin-right: 100px;
 		margin-top: 0 !important;
+	    width: 120px;
 	}
 }
 @media only screen and (max-width: 360px) {
 	.headerImg {
 		float: right;
-		margin-right: 70px;
+		margin-right: 75px;
 		margin-top: 0 !important;
 	    width: 120px;
+	}
+	.headerText {
+	    margin: 0 !important;
 	}
 }
