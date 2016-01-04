@@ -33,31 +33,25 @@ body {
 .inputShadow:-ms-input-placeholder { font-style: italic; }
 .well-card {
   padding: 0;
-  margin-top: 25px;
-  background: #fff;
+  margin-top: 40px;
+  background: #ee;
   border: 1px solid #ddd;
   box-shadow: 1px 2px 10px #ccc;
-  display: none;
+  #display: none;
   font-size: 15px;
+} 
+.flickity-viewport {
+  height: 420px !important;
+  background: #111;
 }
-.panel-info > .panel-heading {
-  background: rgba(0, 23, 52, 0.9);
+
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  .flickity-viewport {
+    height: 420px !important;
+  }
 }
-.panel-body {
-  padding: 15px 15px 0;
-  background-color: #fff;
-}
-.panel-footer {
-  display: inline-block;
-  width: 100%;
-  padding: 10px 15px 0;
-}
-.table-user-information > tbody > tr {
-    border-top: 1px solid rgb(221, 221, 221);
-}
-.table-user-information > tbody > tr:first-child {
-    border-top: 0;
-}
-.table-user-information > tbody > tr > td {
-    border-top: 0;
+@media only screen and (max-width: 769px) {
+  .flickity-viewport {
+    height: 480px !important;
+  }
 }

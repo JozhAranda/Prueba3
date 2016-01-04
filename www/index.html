@@ -37,7 +37,7 @@
 
     <div id="loginPage" data-role="page" class="container loginPage">
 
-      <div class="row" style="margin-left: 0;margin-right: 0;">
+      <div class="row" style="margin-left: 0;margin-right: 0;zoom: 1.25;">
         <div class="col-xs-12 headerLogo">
           <div class="col-xs-6">
             <img src="assets/img/sspm_logo.png" class="img img-responsive headerImg" alt="logo" />
@@ -45,15 +45,15 @@
           <div class="col-xs-6">
             <p class="headerText">
               Sistema de Control de
-              <span style="color: rgba(0, 23, 52, 0.8);font-size: 24px;font-weight: 600;"> Infracciones de Transito</span>
+              <span style="color: rgba(0, 23, 52, 0.8);font-size: 24px;font-weight: 600;"> Inteligencia</span>
             </p>
           </div>
         </div>
         <div class="col-xs-12">
             <div class="wrap">
                 <form class="login" id="formLogin" role="form">
-                  <input type="text" name="NombreUsuario" id="NombreUsuario" class="form-control inputShadow" placeholder="Introduzca su nombre de usuario"/>
-                  <input type="password" name="Contrasena" id="Contrasena" class="form-control inputShadow" placeholder="Introduzca su contraseña"/>
+                  <input type="text" name="NombreUsuario" id="NombreUsuario" class="form-control inputShadow" placeholder="Nombre de usuario" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required/>
+                  <input type="password" name="Contrasena" id="Contrasena" class="form-control inputShadow" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required/>
                   <input type="hidden" name="Imei" id="Imei" />
                   <input type="hidden" name="Latitud" id="latitude" />
                   <input type="hidden" name="Longitud" id="longitude" />

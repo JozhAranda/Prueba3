@@ -7,6 +7,8 @@
     <link href="assets/css/snackbar.min.css" rel="stylesheet" />
     <link href="assets/css/mobile.css" rel="stylesheet" />
     <link href="assets/css/home.css" rel="stylesheet" />
+    <link href="assets/css/flickity.min.css" rel="stylesheet" media="screen" />
+    <link href="assets/css/fancybox.min.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,108 +22,30 @@
     <div class="row" style="margin-left: 0;margin-right: 0;">
       <div class="col-xs-12 headerLogo"style="margin: 30px 0 40px 0;">
         <div class="col-xs-6">
-          <img src="assets/img/sspm_logo.png" class="img img-responsive headerImg" style="width: 120px;margin-top: 25px;" alt="logo" />
+          <img src="assets/img/sspm_logo.png" class="img img-responsive headerImg" style="width: 125px;margin-top: 20px;" alt="logo" />
         </div>
         <div class="col-xs-6">
           <p class="headerText">
             Sistema de Control de
-            <span style="color: rgba(0, 23, 52, 0.8);font-size: 24px;font-weight: 600;"> Infracciones de Transito</span>
+            <span style="color: rgba(0, 23, 52, 0.8);font-size: 24px;font-weight: 600;"> Inteligencia</span>
           </p>
         </div>
       </div>      
       <div class="container">
         <div class="col-xs-12">
           <form class="form" id="formSearch" role="form">
-            <div class="form-group">  
-              <input type="text" name="inputSearch" id="inputSearch" class="form-control inputShadow" placeholder="Buscar por matrícula o número de licencia..." />
-              <!--span class="input-group-btn">
-                <button type="submit" class="btn" id="btnSearch" style="height: 50px;">
-                  <img src="assets/img/arrow.png" width="21">
+            <div class="input-group">  
+              <input type="text" name="inputSearch" id="inputSearch" class="form-control inputShadow" placeholder="Buscar por nombre o alias" /><span class="input-group-btn">
+                <button type="button" class="btn btn-primary" id="btnReload" onclick="location.reload();" style="height: 50px;">
+                  <img src="assets/img/refresh.png" width="21">
                 </button>
-              </span-->
+              </span>
             </div>
           </form>
           <h4 id="textEmpty"></h4>
           <div class="loader"></div>
-          <div class="panel panel-info well-card" id="well-card">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="name"></span> <span class="firstName"></span> <span class="lastName"></span>
-                <span class="label label-danger pull-right">Pendiente de pago</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-12"> 
-                  <table class="table table-user-information">
-
-                    <tbody>
-                      <tr>
-                        <td><strong>Boleta</strong><br/><span class="fine"></td>
-                        <td><strong>Número de artículo</strong><span class="article"></span> <span class="part"></span></td>
-                        <td><strong>Fecha</strong><br/><span class="dateFine"><span style="opacity: 0;font-size: 0;" class="dateFineTemp"></span></td>
-                        <td><strong>Tipo</strong><br/><span class="typeLicense"></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Nombre completo</strong><br/><span class="name"></span> <span class="firstName"></span> <span class="lastName"></span></td>
-                        <td><strong>Número de licencia</strong><br/><span class="numberLicense"></td>
-                        <td></td><td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <div class="panel-footer">
-              <div class="col-xs-12"> 
-                <table class="table table-user-information">
-                  <tbody>
-                    <tr>
-                      <td><strong>Tipo de placa:</strong></td>
-                      <td><span class="typePlate"></td>
-                      <td><strong>Tipo de vehiculo:</strong></td>
-                      <td><span class="typeVehicle"></span></td>
-                      </tr>
-                    <tr>
-                      <td><strong>Placa:</strong></td>
-                      <td><span class="plate"></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                      <tr>
-                        <td><strong>Marca:</strong></td>
-                        <td><span class="brand"></span></td>
-                        <td><strong>Modelo:</strong></td>
-                        <td><span class="model"></span></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Serie:</strong></td>
-                        <td><span class="serie"></span></td>
-                        <td><strong>Color:</strong></td>
-                        <td><span class="color"></span></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Servicio</strong></td>
-                        <td><span class="service"></span></td>
-                        <td><strong>Estado</strong></td>
-                        <td><span class="state"></span></td>
-                      </tr>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-          </div>
-          <div class="pull-right" style="margin: 25px 0 40px;">
-            <span style="opacity: 0;font-size: 0;">
-              <span id="name"></span> <span id="firstName"></span> <span id="lastName"></span>
-            </span>
-            <!--span style="color: #999;">Registra una nueva infracción -> </span>
-            <button id="fineData" class="btn btn-lg btn-primary" style="background: rgba(0, 23, 52, 0.9);">
-              <img src="assets/img/plus.png" width="21" title="Nueva infracción" alt="Nueva infracción" />
-            </button>
-          </div-->
-        </div>
+          <div class="well-card" id="gallery"></div>
+        </div>  
       </div>
     </div>
 
@@ -129,32 +53,14 @@
     <script src="assets/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/app-webservice.js"></script>
+    <script src="assets/js/snackbar.min.js"></script>
+    <script src="assets/js/flickity.min.js"></script>
+    <script src="assets/js/fancybox.min.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/search.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#fineData').on('click touch', function(event) {
-          event.preventDefault();
-          
-          var plate         = $('.plate').text();
-          var typeLicense   = $('.typeLicense').text();
-          var fullName      = $('#name').text() + " " + $('#firstName').text() + " " + $('#lastName').text();
-          var numberLicense = $('.numberLicense').text();
-          var state         = $('.state').text();
-          var typePlate     = $('.typePlate').text();
-          var typeVehicle   = $('.typeVehicle').text();
-          var brand         = $('.brand').text();
-          var model         = $('.model').text();
-          var serie         = $('.serie').text();
-          var color         = $('.color').text();
-          var service       = $('.service').text();
-
-          var data = "?plate="+encodeURIComponent(plate)+"&typeLicense="+encodeURIComponent(typeLicense)+"&fullName="+encodeURIComponent(fullName)+"&numberLicense="+encodeURIComponent(numberLicense)+"&state="+encodeURIComponent(state)+"&typePlate="+encodeURIComponent(typePlate)+"&typeVehicle="+encodeURIComponent(typeVehicle)+"&brand="+encodeURIComponent(brand)+"&model="+encodeURIComponent(model)+"&serie="+encodeURIComponent(serie)+"&color="+encodeURIComponent(color)+"&service="+encodeURIComponent(service);
-          
-          if(data) {
-            $("body").load("fine.html").hide().fadeIn(1500).delay(6000);
-            window.location.href = "fine.html" + data;
-          }
-        });
+        $(".fancybox").fancybox();
       });
     </script>
   </body>
