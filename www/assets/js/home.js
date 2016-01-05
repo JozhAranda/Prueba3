@@ -34,7 +34,7 @@ $(document).ready(function() {
         }); 
       } else {
         $.snackbar({
-          content: "Ocurrio un error, al descargar las imagenes", 
+          content: "Ocurrio un error, al descargar las imagenes " + xhr.responseText, 
           timeout: 5000
         }); 
       }
