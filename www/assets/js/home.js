@@ -45,8 +45,8 @@ $(document).ready(function() {
 
 $(document).ready(function() { 
   $.ajax({
-    url: "wanted/",
-    beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
+    url: "file:///android_asset/www/wanted/",
+    beforeSend: function() { $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
       $(".loader").css("display", "none");
@@ -94,7 +94,7 @@ $(document).ready(function() {
         }); 
       } else {
         $.snackbar({
-          content: "Ocurrio un error al descargar las imagenes" + xhr.responseText + " - " + textStatus + " - " + errorThrown, 
+          content: "Ocurrio un error al descargar las imagenes", 
           timeout: 5000
         }); 
       }
