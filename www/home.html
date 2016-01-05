@@ -62,14 +62,184 @@
     <script src="assets/js/snackbar.min.js"></script>
     <script src="assets/js/flickity.min.js"></script>
     <script src="assets/js/fancybox.min.js"></script>
-    <script src="assets/js/home.js"></script>
-    <script src="assets/js/search.js"></script>
+    <!--script src="assets/js/home.js"></script-->
+    <!--script src="assets/js/search.js"></script-->
     <script type="text/javascript">
       $(document).ready(function() {
         $(".fancybox").fancybox();
       });
     </script>
+    <script type="text/javascript"> <!-- Home -->
+      $(document).ready(function() { 
+        $.ajax({
+          url: "wanted/",
+          beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
+          success: function(data) { 
 
+            $(".loader").css("display", "none");
+            
+            var html = '<div class="main-gallery gallery js-flickity">';
+            
+            $(data).find("a:contains()").each(function(index, value) {
+            
+              if(index >= 5) {
+
+                var image = $(this).attr("href");
+                var dir = "wanted/" + image;
+                
+                html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
+                html += '<a class="fancybox" rel="group" href="'+ dir +'">';
+                html += '<img src="'+ dir +'" class="img" title="'+ image +'" width="512" />';
+                html += '</a>';
+                html += '</div>'; 
+              }            
+            });
+            
+            html += '</div>'; 
+            
+            $('#gallery').append(html);
+            $('.main-gallery').flickity({
+              freeScroll: true,
+              prevNextButtons: false,
+              contain: true,
+              pageDots: false
+            });
+          },
+          error : function(xhr, textStatus, errorThrown) {
+            if (textStatus === 'timeout') {
+              this.tryCount++;
+              if (this.tryCount <= this.retryLimit) {
+                $.ajax(this);
+                return;
+              }            
+              return;
+            }       
+            if (xhr.status === 500) {
+              $.snackbar({
+                content: "Ocurrio un error, al intentar conectarse al servidor", 
+                timeout: 5000
+              }); 
+            } else {
+              $.snackbar({
+                content: "Ocurrio un error, al descargar las imagenes", 
+                timeout: 5000
+              }); 
+            }
+          }
+        });
+      });
+    </script>
+
+    <script type="text/javascript"> <!-- Search -->
+      $(document).ready(function() {          
+        $('#inputSearch').keypress(function(event) {
+
+          if (event.keyCode == 13) {
+          
+            event.preventDefault();  
+            var search = $('#inputSearch').val();
+            
+            $("#gallery").load(location.href+" #gallery>*","");
+
+            if(!$(this).val()) {
+
+              location.reload();
+              return false;
+            }
+
+            $.ajax({
+              url: "wanted/",
+              beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
+              success: function(data) {          
+                $(".loader").css("display", "none");
+                
+                var html = '<div class="main-gallery gallery js-flickity">';
+
+                if(search) {
+
+                  search = search.replace('"', '');
+                  search = search.toUpperCase();
+            
+                  $(data).find("a:contains()").each(function(index, value) {
+                  
+                    if(index >= 5) {
+                    
+                      var image = $(this).attr("href");
+
+                      var imgArray = new Array();
+                      var imgTemp = image.substring(0, image.lastIndexOf("."));
+                      
+                      imgArray = record(imgTemp);
+                      
+                      if(search == image.toUpperCase() || imgArray.indexOf(search) != -1) {
+
+                        var dir = "wanted/" + image;
+                        html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
+                        html += '<a class="fancybox" rel="group" href="'+ dir +'">';
+                        html += '<img src="'+ dir +'" class="img" title="'+ image +'" width="512" />';
+                        html += '</a>';
+                        html += '</div>'; 
+                      }
+                    }                    
+                  });
+                
+                }
+                  
+                html += '</div>';
+                  
+                $('#gallery').append(html);
+                
+                $('.main-gallery').flickity({
+                  freeScroll: true,
+                  prevNextButtons: false,
+                  contain: true,
+                  pageDots: false
+                });
+              },
+              error : function(xhr, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                  this.tryCount++;
+                  if (this.tryCount <= this.retryLimit) {
+                    $.ajax(this);
+                    return;
+                  }            
+                  return;
+                }       
+                if (xhr.status === 500) {
+                  $.snackbar({
+                    content: "Ocurrio un error, al intentar conectarse al servidor", 
+                    timeout: 5000
+                  }); 
+                } else {
+                  $.snackbar({
+                    content: "Ocurrio un error, al descargar las imagenes", 
+                    timeout: 5000
+                  }); 
+                }
+              }
+            });
+          }
+        });
+
+        function record(value) {
+
+          value   = value.toUpperCase();
+          var aux = value.split("-");
+
+          var record = new Array();
+
+          for(var i = 0; i <= aux.length; i++) {
+
+            record.push(aux[i]);
+          }
+
+          aux = null;
+
+          return record;
+        }
+
+      });
+    </script>
     <!--script type="text/javascript">
       var xhr = new XMLHttpRequest();
       var url = "http://opcom.policiatijuana.mx/";

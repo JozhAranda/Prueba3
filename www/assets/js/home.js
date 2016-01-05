@@ -89,12 +89,12 @@ $(document).ready(function() {
       }       
       if (xhr.status === 500) {
         $.snackbar({
-          content: "Ocurrio un error, al intentar conectarse al servidor", 
+          content: "Ocurrio un error al intentar conectarse al servidor", 
           timeout: 5000
         }); 
       } else {
         $.snackbar({
-          content: "Ocurrio un error, al descargar las imagenes", 
+          content: "Ocurrio un error al descargar las imagenes", 
           timeout: 5000
         }); 
       }
