@@ -3,7 +3,7 @@
 	error_reporting(0);
 	ini_set('max_execution_time', 120);
 
-	$img_dir = "imgPix/";
+	$img_dir = "wanted/";
 	$images = scandir($img_dir);
 	 	
 	$html = '';	 
@@ -52,7 +52,7 @@
 
     function record($value) 
     {
-        $aux = explode(" ", $value);
+        $aux = explode("-", $value);
 
         for($i = 0; $i <= count($aux); $i++) {
 

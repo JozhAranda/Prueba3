@@ -7,7 +7,7 @@ $(function() {
 
     $.ajax({
       method: 'POST',
-      url: 'http://soporte.policiatijuana.gob.mx:88/Api/Default1/',
+      //url: 'http://soporte.policiatijuana.gob.mx:88/Api/Default1/',
       async: true,
       crossDomain: true,
       data: dataLogin,

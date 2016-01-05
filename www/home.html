@@ -45,6 +45,12 @@
           <h4 id="textEmpty"></h4>
           <div class="loader"></div>
           <div class="well-card" id="gallery"></div>
+          <!--div class="pull-right" style="margin: 25px 0 40px;">
+            <span style="color: #999;">Sincronizar las imagenes -> </span>
+            <button id="syncData" class="btn btn-primary" style="background: rgba(0, 23, 52, 0.9);">
+              <img src="assets/img/download.png" width="21" title="Nueva infracción" alt="Nueva infracción" />
+            </button>
+          </div-->
         </div>  
       </div>
     </div>
@@ -63,5 +69,24 @@
         $(".fancybox").fancybox();
       });
     </script>
+    <!--script type="text/javascript">
+      var xhr = new XMLHttpRequest();
+      var url = "http://opcom.policiatijuana.mx/";
+      xhr.addEventListener('readystatechange', state_change, true);
+      xhr.open("GET", url, true);
+      xhr.send(null);
+
+      function state_change(){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            $('#syncData').removeAttr('disabled'); 
+          } else if(xhr.status === 0) {
+            $('#syncData').attr('disabled','disabled'); 
+          } else {
+            $('#syncData').attr('disabled','disabled');
+          } 
+        }
+      }
+    </script-->
   </body>
 </html> 

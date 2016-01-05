@@ -1,7 +1,8 @@
 
 $(document).ready(function() {   
   $.ajax({            
-    url: "img.php", 
+    //url: "http://joshuaranda.website/sspm/inteligencia/images.php", 
+    url: "img.php",
     type: "POST",          
     dataType: "HTML",
     async: true,
@@ -40,3 +41,7 @@ $(document).ready(function() {
     }
   }); 
 });      
+
+$('#syncData').on('click touch', function(event) {
+  event.preventDefault();
+});

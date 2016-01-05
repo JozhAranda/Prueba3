@@ -8,7 +8,6 @@ $(document).ready(function() {
       var search = $('#inputSearch').val();
       
       $("#gallery").load(location.href+" #gallery>*","");
-      $("#textEmpty").text("");
 
       if(!$(this).val()) {
 
@@ -18,7 +17,8 @@ $(document).ready(function() {
 
       $.ajax({             
         type: "GET", 
-        url: "img.php?search=" + search,          
+        //url: "http://joshuaranda.website/sspm/inteligencia/images.php?search=" + search,          
+        url: "img.php?search=" + search,
         dataType: "HTML",
         async: true,
         crossDomain: true,
