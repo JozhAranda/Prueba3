@@ -34,7 +34,7 @@ $(document).ready(function() {
         }); 
       } else {
         $.snackbar({
-          content: "Ocurrio un error, al descargar las imagenes " + xhr.responseText, 
+          content: "Ocurrio un error, al descargar las imagenes", 
           timeout: 5000
         }); 
       }
@@ -43,11 +43,10 @@ $(document).ready(function() {
 });      
 */
 
-$(document).ready(function() {
-  $('.headerText').text(window.location); 
+$(document).ready(function() { 
   $.ajax({
-    url: "wanted",
-    beforeSend: function() { $(".loader").fadeOut("200").css("display", "block"); },
+    url: "file:///android_asset/www/wanted",
+    beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
       $(".loader").css("display", "none");
@@ -59,7 +58,7 @@ $(document).ready(function() {
         if(index >= 5) {
 
           var image = $(this).attr("href");
-          var dir = "wanted/" + image;
+          var dir = "file:///android_asset/www/wanted/" + image;
           
           html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
           html += '<a class="fancybox" rel="group" href="'+ dir +'">';
