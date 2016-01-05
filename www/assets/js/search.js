@@ -78,7 +78,7 @@ $(document).ready(function() {
       }
 
       $.ajax({
-        url: "wanted",
+        url: "wanted/",
         beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
         success: function(data) {          
           $(".loader").css("display", "none");
