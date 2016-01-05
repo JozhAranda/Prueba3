@@ -68,7 +68,7 @@
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-        window.resolveLocalFileSystemURI("file:///wanted", onResolveSuccess, fail);
+        window.resolveLocalFileSystemURI("file:///android_asset/www/wanted", onResolveSuccess, fail);
       }
       function onFileSystemSuccess(fileSystem) {
         console.log(fileSystem.name);
