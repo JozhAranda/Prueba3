@@ -50,7 +50,7 @@ $(document).ready(function() {
             }); 
           } else {
             $.snackbar({
-              content: "Ocurrio un error, al descargar las imagenes " + xhr.responseText, 
+              content: "Ocurrio un error, al descargar las imagenes", 
               timeout: 5000
             }); 
           }
@@ -142,7 +142,7 @@ $(document).ready(function() {
             }); 
           } else {
             $.snackbar({
-              content: "Ocurrio un error al descargar las imagenes " + xhr.responseText, 
+              content: "Ocurrio un error al descargar las imagenes", 
               timeout: 5000
             }); 
           }

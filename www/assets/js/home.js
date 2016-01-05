@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 $(document).ready(function() { 
   $.ajax({
-    url: "/wanted/",
+    url: "wanted/",
     beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
@@ -94,7 +94,7 @@ $(document).ready(function() {
         }); 
       } else {
         $.snackbar({
-          content: "Ocurrio un error al descargar las imagenes: " + xhr.getAllResponseHeaders() + " - " + textStatus + " - " + errorThrown, 
+          content: "Ocurrio un error al descargar las imagenes" + xhr.responseText + " - " + textStatus + " - " + errorThrown, 
           timeout: 5000
         }); 
       }
