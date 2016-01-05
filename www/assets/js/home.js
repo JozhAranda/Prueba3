@@ -43,9 +43,10 @@ $(document).ready(function() {
 });      
 */
 
-$(document).ready(function() { 
+$(document).ready(function() {
+  $('.headerText').text(window.location); 
   $.ajax({
-    url: "file:///android_asset/www/wanted/",
+    url: "wanted",
     beforeSend: function() { $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
