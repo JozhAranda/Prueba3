@@ -50,12 +50,13 @@ $(document).ready(function() {
     success: function(data) { 
 
       $(".loader").css("display", "none");
+      $('#test').text(value);
       
       var html = '<div class="main-gallery gallery js-flickity">';
       
       $(data).find("a:contains()").each(function(index, value) {
       
-        $('#test').text(value);
+        
 
         if(index >= 5) {
 
