@@ -44,6 +44,7 @@
           </form>
           <h4 id="textEmpty"></h4>
           <span id="test"></span>
+          <img id="my_image" src="" />
           <div class="loader"></div>
           <div class="well-card" id="gallery"></div>
           <!--div class="pull-right" style="margin: 25px 0 40px;">
@@ -64,71 +65,13 @@
     <script src="assets/js/snackbar.min.js"></script>
     <script src="assets/js/flickity.min.js"></script>
     <script src="assets/js/fancybox.min.js"></script>
-    <!--script src="assets/js/home.js"></script-->
+    <script src="assets/js/home.js"></script>
     <script src="assets/js/search.js"></script>
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
         $('#textEmpty').text(cordova.file.applicationDirectory + "www/wanted/");
-
-        $.ajax({
-          url: cordova.file.applicationDirectory + "www/wanted",
-          beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
-          success: function(data) { 
-
-            $(".loader").css("display", "none");
-            $('#test').text(data);
-
-            var html = '<div class="main-gallery gallery js-flickity">';
-            
-            $(data).find("a:contains()").each(function(index, value) {
-            
-              if(index >= 5) {
-
-                var image = $(this).attr("href");
-                var dir = cordova.file.applicationDirectory + "www/wanted/" + image;
-                
-                html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
-                html += '<a class="fancybox" rel="group" href="'+ dir +'">';
-                html += '<img src="'+ dir +'" class="img" title="'+ image +'" width="512" />';
-                html += '</a>';
-                html += '</div>'; 
-              }            
-            });
-            
-            html += '</div>'; 
-            
-            $('#gallery').append(html);
-            $('.main-gallery').flickity({
-              freeScroll: true,
-              prevNextButtons: false,
-              contain: true,
-              pageDots: false
-            });
-          },
-          error : function(xhr, textStatus, errorThrown) {
-            if (textStatus === 'timeout') {
-              this.tryCount++;
-              if (this.tryCount <= this.retryLimit) {
-                $.ajax(this);
-                return;
-              }            
-              return;
-            }       
-            if (xhr.status === 500) {
-              $.snackbar({
-                content: "Ocurrio un error al intentar conectarse al servidor", 
-                timeout: 5000
-              }); 
-            } else {
-              $.snackbar({
-                content: "Ocurrio un error al descargar las imagenes", 
-                timeout: 5000
-              }); 
-            }
-          }
-        });
-
+        $('#my_image').attr('src','cordova.file.applicationDirectory + "www/wanted/ABEL-RAMOS.jpg');
       }
     </script>
     <!--script type="text/javascript">
