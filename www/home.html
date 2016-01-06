@@ -28,8 +28,8 @@
           <p class="headerText">
             Sistema de Control de
             <span style="color: rgba(0, 23, 52, 0.8);font-size: 24px;font-weight: 600;"> Inteligencia</span>
+            <span id="test"></span>
           </p>
-          <img src="file:///android_asset/www/wanted/ABEL-RAMOS.jpg" class="img img-responsive" width="240" />
         </div>
       </div>      
       <div class="container">
@@ -69,9 +69,10 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-        window.resolveLocalFileSystemURI("file:///android_asset/www/wanted/", onResolveSuccess, fail);
-      }
+        $('#test').text(cordova.file);
+        //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+        //window.resolveLocalFileSystemURI("file:///android_asset/www/wanted/", onResolveSuccess, fail);
+      }/*
       function onFileSystemSuccess(fileSystem) {
         $('.headerText').text(fileSystem.name);
       }
@@ -80,7 +81,7 @@
       }
       function fail(evt) {
         $('.headerText').text(evt.target.error.code);
-      }
+      }*/
     </script>
     <!--script type="text/javascript">
       var xhr = new XMLHttpRequest();
