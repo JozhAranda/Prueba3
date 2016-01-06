@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 $(document).ready(function() { 
   $.ajax({
-    url: cordova.file.applicationDirectory + "wanted/",
+    url: cordova.file.applicationDirectory + "wanted",
     beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
