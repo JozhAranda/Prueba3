@@ -71,11 +71,11 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        alert(cordova.file.applicationDirectory);
-        alert(cordova.file.applicationStorageDirectory);
-        alert(cordova.file.dataDirectory);
-        alert(cordova.file.externalDataDirectory);
-        $.get("wanted/", function(data) {          
+        //alert(cordova.file.applicationDirectory);
+        //alert(cordova.file.applicationStorageDirectory);
+        //alert(cordova.file.dataDirectory);
+        //alert(cordova.file.externalDataDirectory);
+        $.get(cordova.file.applicationStorageDirectory + "www/wanted/", function(data) {          
           var html = '<div class="main-gallery gallery js-flickity">';
           alert(data);        
           $(data).each(function(key, element) {
