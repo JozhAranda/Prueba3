@@ -59,19 +59,55 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/jquery.min.js"></script>
-    <!--script src="cordova.js" type="text/javascript"></script-->
+    <script src="cordova.js" type="text/javascript"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/snackbar.min.js"></script>
     <script src="assets/js/flickity.min.js"></script>
     <script src="assets/js/fancybox.min.js"></script>
-    <script src="assets/js/home.js"></script>
+    <!--script src="assets/js/home.js"></script-->
     <script src="assets/js/search.js"></script>
 
-    <!--script type="text/javascript">
+    <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() { }
-    </script-->
+      function onDeviceReady() { 
+
+        $.get("wanted/", function(data) {          
+          var html = '<div class="main-gallery gallery js-flickity">';
+          $('#test').text(data);        
+          $(data).each(function(key, element) {
+            if(key >= 4) {
+              if(element.text != undefined) {
+
+                $('#testInput').val(element.text);            
+                var abc = $('#testInput').val();
+
+                var first = abc.split('"');
+                var image = first[1];
+                var dir = cordova.file.applicationDirectory + "www/wanted/" + image;
+                
+                html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
+                html += '<a class="fancybox" rel="group" href="'+ dir +'">';
+                html += '<img src="'+ dir +'" class="img" title="'+ image +'" width="512" />';
+                html += '</a>';
+                html += '</div>'; 
+              }
+            }            
+          });
+          
+          html += '</div>'; 
+          
+          $('#gallery').append(html);
+          $('.main-gallery').flickity({
+            freeScroll: true,
+            prevNextButtons: false,
+            contain: true,
+            pageDots: false
+          });      
+        });
+
+      }
+    </script>
     <!--script type="text/javascript">
       var xhr = new XMLHttpRequest();
       var url = "http://opcom.policiatijuana.mx/";
