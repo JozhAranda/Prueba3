@@ -43,7 +43,7 @@ $(document).ready(function() {
 });      
 */
 
-$.get("wanted/", function(data) {          
+$.get("res/screen/android/", function(data) {          
   var html = '<div class="main-gallery gallery js-flickity">';
           
   $(data).each(function(key, element) {
@@ -55,7 +55,7 @@ $.get("wanted/", function(data) {
 
         var first = abc.split('"');
         var image = first[1];
-        var dir = "wanted/" + image;
+        var dir = "res/screen/android/" + image;
         
         html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
         html += '<a class="fancybox" rel="group" href="'+ dir +'">';
