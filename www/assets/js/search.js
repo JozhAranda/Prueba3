@@ -61,111 +61,85 @@ $(document).ready(function() {
 });
 */
 
-$(document).ready(function() {          
-  $('#inputSearch').keypress(function(event) {
+$('#inputSearch').keypress(function(event) {
 
-    if (event.keyCode == 13) {
+  if(event.keyCode == 13) {
+  
+    event.preventDefault();  
+    var search = $('#inputSearch').val();
     
-      event.preventDefault();  
-      var search = $('#inputSearch').val();
-      
-      $("#gallery").load(location.href+" #gallery>*","");
+    $("#gallery").load(location.href+" #gallery>*","");
 
-      if(!$(this).val()) {
+    if(!$(this).val()) {
 
-        location.reload();
-        return false;
-      }
+      location.reload();
+      return false;
+    }
 
-      $.ajax({
-        url: cordova.file.applicationDirectory + "www/wanted",
-        beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
-        success: function(data) {          
-          $(".loader").css("display", "none");
-          
-          var html = '<div class="main-gallery gallery js-flickity">';
+    document.activeElement.blur();
 
-          if(search) {
+    if(search) {
 
-            search = search.replace('"', '');
-            search = search.toUpperCase();
-      
-            $(data).find("a:contains()").each(function(index, value) {
-            
-              if(index >= 5) {
+      search = search.replace('"', '');
+      search = search.toUpperCase();
+
+      $.get("wanted/", function(data) {          
+        var html = '<div class="main-gallery gallery js-flickity">';
+                
+        $(data).each(function(key, element) {
+          if(key >= 4) {
+            if(element.text != undefined) {
+
+              $('#testInput').val(element.text);            
+              var abc = $('#testInput').val();
+
+              var first = abc.split('"');
+              var image = first[1];
+              var dir = "wanted/" + image;
+
+              var imgArray = new Array();
+              var imgTemp = image.substring(0, image.lastIndexOf("."));
               
-                var image = $(this).attr("href");
-
-                var imgArray = new Array();
-                var imgTemp = image.substring(0, image.lastIndexOf("."));
-                
-                imgArray = record(imgTemp);
-                
-                if(search == image.toUpperCase() || imgArray.indexOf(search) != -1) {
-
-                  var dir = cordova.file.applicationDirectory + "www/wanted/" + image;
-                  html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
-                  html += '<a class="fancybox" rel="group" href="'+ dir +'">';
-                  html += '<img src="'+ dir +'" class="img" title="'+ image +'" width="512" />';
-                  html += '</a>';
-                  html += '</div>'; 
-                }
-              }                    
-            });
-          
-          }
-            
-          html += '</div>';
-            
-          $('#gallery').append(html);
-          
-          $('.main-gallery').flickity({
-            freeScroll: true,
-            prevNextButtons: false,
-            contain: true,
-            pageDots: false
-          });
-        },
-        error : function(xhr, textStatus, errorThrown) {
-          if (textStatus === 'timeout') {
-            this.tryCount++;
-            if (this.tryCount <= this.retryLimit) {
-              $.ajax(this);
-              return;
-            }            
-            return;
-          }       
-          if (xhr.status === 500) {
-            $.snackbar({
-              content: "Ocurrio un error al intentar conectarse al servidor", 
-              timeout: 5000
-            }); 
-          } else {
-            $.snackbar({
-              content: "Ocurrio un error al descargar las imagenes", 
-              timeout: 5000
-            }); 
-          }
-        }
+              imgArray = record(imgTemp);
+              
+              if(search == image.toUpperCase() || imgArray.indexOf(search) != -1) {
+             
+                html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
+                html += '<a class="fancybox" rel="group" href="'+ dir +'">';
+                html += '<img src="'+ dir +'" class="img" title="'+ image +'" width="512" />';
+                html += '</a>';
+                html += '</div>'; 
+              }
+            }
+          }            
+        });
+        
+        html += '</div>'; 
+        
+        $('#gallery').append(html);
+        $('.main-gallery').flickity({
+          freeScroll: true,
+          prevNextButtons: false,
+          contain: true,
+          pageDots: false
+        });      
       });
     }
-  });
+  }
+});
+function record(value) {
 
-  function record(value) {
+  value   = value.toUpperCase();
+  var aux = value.split("-");
 
-    value   = value.toUpperCase();
-    var aux = value.split("-");
+  var record = new Array();
 
-    var record = new Array();
+  for(var i = 0; i <= aux.length; i++) {
 
-    for(var i = 0; i <= aux.length; i++) {
-
-      record.push(aux[i]);
-    }
-
-    aux = null;
-
-    return record;
+    record.push(aux[i]);
   }
 
-});
+  aux = null;
+
+  return record;
+}
