@@ -45,19 +45,17 @@ $(document).ready(function() {
 
 $(document).ready(function() { 
   $.ajax({
-    url: cordova.file.applicationDirectory + "www/wanted/",
+    url: cordova.file.applicationDirectory + "www/wanted",
     beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
       $(".loader").css("display", "none");
-      $('#test').text(value);
+      $('#test').text(data);
 
       var html = '<div class="main-gallery gallery js-flickity">';
       
       $(data).find("a:contains()").each(function(index, value) {
       
-        
-
         if(index >= 5) {
 
           var image = $(this).attr("href");
