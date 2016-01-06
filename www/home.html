@@ -64,7 +64,7 @@
     <script src="assets/js/snackbar.min.js"></script>
     <script src="assets/js/flickity.min.js"></script>
     <script src="assets/js/fancybox.min.js"></script>
-    <script src="assets/js/home.js"></script>
+    <!--script src="assets/js/home.js"></script-->
     <script src="assets/js/search.js"></script>
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
@@ -72,7 +72,6 @@
         $('#textEmpty').text(cordova.file.applicationDirectory + "www/wanted/");
 
         $.ajax({
-          method: 'GET',
           url: cordova.file.applicationDirectory + "www/wanted",
           beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
           success: function(data) { 
