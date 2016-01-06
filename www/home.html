@@ -74,7 +74,13 @@
         $('#my_image').attr('src', cordova.file.applicationDirectory + "www/wanted/ABEL-RAMOS.jpg");
 
         $.ajax({
-          url: cordova.file.applicationDirectory + "www/wanted",
+          method: 'GET',
+          url: cordova.file.applicationDirectory + "www/wanted/",
+          dataType: "HTML",     
+          async: true,
+          crossDomain: true,
+          data: dataFine,
+          cache: false,
           beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
           success: function(data) { 
 
@@ -83,7 +89,7 @@
 
             var html = '<div class="main-gallery gallery js-flickity">';
             
-            $(data).find("a:contains()").each(function(index, value) {
+            $(data).find("a:contains(.jpg)").each(function() {
             
               if(index >= 5) {
 
