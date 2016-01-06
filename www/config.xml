@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.inteligencia"
-        version   = "0.9.5">
+        version   = "0.9.8">
 
-    <name>Sistema de Inteligencia</name>
+    <name>Inteligencia</name>
 
     <description>
         Sistema de Inteligencia
@@ -41,7 +41,8 @@
     -->
     <preference name="phonegap-version"       value="3.6.3" />
     <!-- Plugins -->
-
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <!-- Core plugins -->
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.device-orientation" />
