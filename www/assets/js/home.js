@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 $(document).ready(function() { 
   $.ajax({
-    url: cordova.file.applicationDirectory + "wanted",
+    url: cordova.file.applicationDirectory + "wanted/",
     beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
@@ -55,6 +55,8 @@ $(document).ready(function() {
       
       $(data).find("a:contains()").each(function(index, value) {
       
+        $('#test').text(value);
+
         if(index >= 5) {
 
           var image = $(this).attr("href");

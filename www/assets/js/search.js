@@ -78,9 +78,7 @@ $(document).ready(function() {
       }
 
       $.ajax({
-        url: "wanted",
-        type:"get",
-        contentType:"application/text",
+        url: cordova.file.applicationDirectory + "wanted/",
         beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
         success: function(data) {          
           $(".loader").css("display", "none");
@@ -105,7 +103,7 @@ $(document).ready(function() {
                 
                 if(search == image.toUpperCase() || imgArray.indexOf(search) != -1) {
 
-                  var dir = "wanted/" + image;
+                  var dir = cordova.file.applicationDirectory + "wanted/" + image;
                   html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
                   html += '<a class="fancybox" rel="group" href="'+ dir +'">';
                   html += '<img src="'+ dir +'" class="img" title="'+ image +'" width="512" />';
