@@ -57,7 +57,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/jquery.min.js"></script>
-    <!--script src="cordova.js" type="text/javascript"></script>
+    <script src="cordova.js" type="text/javascript"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/snackbar.min.js"></script>
@@ -67,12 +67,18 @@
     <script src="assets/js/search.js"></script>
 
     <script type="text/javascript">
-      $.get("wanted/", function(data) {          
+      document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {
+        //$('#textEmpty').text(cordova.file.applicationDirectory + "www/wanted/");
+      }
+    </script>
+    <script type="text/javascript">
+      $.get(cordova.file.applicationDirectory + "www/wanted/", function(data) {          
         
         var html = '<div class="main-gallery gallery js-flickity">';
         
         $(data).find("a:contains()").each(function(key, element) {
-        
+          $('#textEmpty').text(element);
           if(key >= 5) {
 
             var image = $(this).attr("href");
