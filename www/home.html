@@ -29,7 +29,7 @@
             Sistema de Control de
             <span style="color: rgba(0, 23, 52, 0.8);font-size: 24px;font-weight: 600;"> Inteligencia</span>
             <span style="color: #444;font-size: 13px;font-weight: 400;" id="test"></span>
-            <input type="text" id="testInput" class="form-control inputShadow" />
+            <input type="hidden" id="testInput" />
           </p>
         </div>
       </div>      
@@ -71,10 +71,13 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-
+        alert(cordova.file.applicationDirectory);
+        alert(cordova.file.applicationStorageDirectory);
+        alert(cordova.file.dataDirectory);
+        alert(cordova.file.externalDataDirectory);
         $.get("wanted/", function(data) {          
           var html = '<div class="main-gallery gallery js-flickity">';
-          $('#test').text(data);        
+          alert(data);        
           $(data).each(function(key, element) {
             if(key >= 4) {
               if(element.text != undefined) {
@@ -84,7 +87,7 @@
 
                 var first = abc.split('"');
                 var image = first[1];
-                var dir = cordova.file.applicationDirectory + "www/wanted/" + image;
+                var dir = "wanted/" + image;
                 
                 html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
                 html += '<a class="fancybox" rel="group" href="'+ dir +'">';
