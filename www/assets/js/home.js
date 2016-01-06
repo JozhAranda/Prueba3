@@ -45,13 +45,13 @@ $(document).ready(function() {
 
 $(document).ready(function() { 
   $.ajax({
-    url: cordova.file.applicationDirectory + "wanted/",
+    url: cordova.file.applicationDirectory + "www/wanted/",
     beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
       $(".loader").css("display", "none");
       $('#test').text(value);
-      
+
       var html = '<div class="main-gallery gallery js-flickity">';
       
       $(data).find("a:contains()").each(function(index, value) {
@@ -61,7 +61,7 @@ $(document).ready(function() {
         if(index >= 5) {
 
           var image = $(this).attr("href");
-          var dir = cordova.file.applicationDirectory + "wanted/" + image;
+          var dir = cordova.file.applicationDirectory + "www/wanted/" + image;
           
           html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
           html += '<a class="fancybox" rel="group" href="'+ dir +'">';
