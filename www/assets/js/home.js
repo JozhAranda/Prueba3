@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 $(document).ready(function() { 
   $.ajax({
-    url: "wanted/",
+    url: cordova.file.applicationDirectory + "wanted/",
     beforeSend: function(){ $(".loader").fadeOut("200").css("display", "block"); },
     success: function(data) { 
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
         if(index >= 5) {
 
           var image = $(this).attr("href");
-          var dir = "wanted/" + image;
+          var dir = cordova.file.applicationDirectory + "wanted/" + image;
           
           html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
           html += '<a class="fancybox" rel="group" href="'+ dir +'">';
