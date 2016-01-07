@@ -64,34 +64,27 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/snackbar.min.js"></script>
     <script src="assets/js/flickity.min.js"></script>
-    <!--script src="assets/js/fancybox.min.js"></script-->
+    <script src="assets/js/fancybox.min.js"></script>
     <script src="assets/js/home.js"></script>
     <script src="assets/js/search.js"></script>
 
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        //This alias is a read-only pointer to the app itself
-        window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/wanted", gotFile, fail);
-      }
-
-      function fail(e) {
-        alert("FileSystem Error" + e.status);
-        alert(e);
-      }
-
-      function gotFile(fileEntry) {
-        fileEntry.file(function(file) {
-          var s = "";
-          s += "<b>name:</b> " + file.name + "<br/>";
-          s += "<b>localURL:</b> " + file.localURL + "<br/>";
-          s += "<b>type:</b> " + file.type + "<br/>";
-          s += "<b>lastModifiedDate:</b> " + (new Date(file.lastModifiedDate)) + "<br/>";
-          s += "<b>size:</b> " + file.size + "<br/>";
-          
-          document.querySelector("#test").innerHTML = s;
-          alert(file);
+        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationStorageDirectory, function(res) {
+          alert("res: " + res);
         });
+        alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
+        $.get(cordova.file.dataDirectory, function(res) {
+          alert("res: " + res);
+        });
+        alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
+        $.get(cordova.file.externalDataDirectory, function(res) {
+          alert("res: " + res);
+        });
+                
+
       }
     </script>
     <!--script type="text/javascript">
