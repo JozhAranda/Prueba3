@@ -74,9 +74,7 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
-        alert(window.localStorage);
-        alert(window.localStorage.key(0));
-        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
+        /*alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
         $.get(cordova.file.applicationDirectory, function(res) {
           alert("res0: " + res);
         });
@@ -94,10 +92,10 @@
         alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res4: " + res);
-        });
+        });*/
       }
     </script>
-    <!--script type="text/javascript">
+    <script type="text/javascript">
       var xhr = new XMLHttpRequest();
       var url = "http://opcom.policiatijuana.mx/";
       xhr.addEventListener('readystatechange', state_change, true);
@@ -128,6 +126,6 @@
           } 
         }
       }
-    </script-->
+    </script>
   </body>
 </html> 
