@@ -70,43 +70,10 @@
       $(function() {
         $(".fancybox").fancybox();
       });
-      netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
-      netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserWrite");
     </script>
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() {
-        $.get(cordova.file.dataDirectory, function(res) {
-          alert("res8: " + res);
-        });
-        $.get(cordova.file.dataDirectory + "Documents", function(res) {
-          alert("res7: " + res);
-        });
-        $.get(cordova.file.dataDirectory + "files", function(res) {
-          alert("res6: " + res);
-        });
-        $.get(cordova.file.dataDirectory + "phonegapdevapp", function(res) {
-          alert("res6: " + res);
-        });
-        $.get("wanted/", function(res) {
-          alert("res7: " + res);
-        });
-
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-      }
-
-      function onFileSystemSuccess(fileSystem) {
-        var tmpPath = filesystem.root.fullPath + "/wanted/";
-        window.resolveLocalFileSystemURI(tmpPath, getDirSuccess, fail);          
-      }
-      function getDirSuccess(dirEntry) {
-        // Get a directory reader
-        var directoryReader = dirEntry.createReader();
-
-        // Get a list of all the entries in the directory
-        directoryReader.readEntries(readerSuccess,fail);
-        alert(directoryReader.readEntries(readerSuccess,fail));
-      }
+      function onDeviceReady() { }
     </script>
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
@@ -139,6 +106,7 @@
           } 
         }
       }
+    </script>
     </script>
   </body>
 </html> 

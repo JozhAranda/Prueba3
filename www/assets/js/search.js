@@ -15,6 +15,8 @@ $(document).ready(function() {
         return false;
       }
 
+      document.activeElement.blur();
+
       $.ajax({             
         type: "GET", 
         url: "http://joshuaranda.website/sspm/inteligencia/images.php?search=" + search,          

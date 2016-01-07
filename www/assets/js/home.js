@@ -55,7 +55,7 @@ $.get("wanted/", function(data) {
 
         var first = abc.split('"');
         var image = first[1];
-        var dir = cordova.file.applicationDirectory + "www/wanted/" + image;
+        var dir = "wanted/" + image;
         
         html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
         html += '<a class="fancybox" rel="group" href="'+ dir +'">';
