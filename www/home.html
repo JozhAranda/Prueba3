@@ -74,58 +74,13 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
-        $.get("file:///data/", function(res) {
-          alert("res0: " + res);
-        });
-        $.get("cdvfile://", function(res) {
-          alert("res4: " + res);
-        });
-        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationDirectory, function(res) {
-          alert("res5: " + res);
-        });
-        $.get(cordova.file.applicationDirectory + "/www/wanted/", function(res) {
-          alert("res6: " + res);
-        });
-        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationStorageDirectory, function(res) {
-          alert("res7: " + res);
-        });
-        $.get(cordova.file.applicationStorageDirectory + "app_database/", function(res) {
-          alert("res7.1: " + res);
-        });
-        $.get(cordova.file.applicationStorageDirectory + "app_webview/", function(res) {
-          alert("res7.2: " + res);
-        });
-        $.get(cordova.file.applicationStorageDirectory + "cache/", function(res) {
-          alert("res7.3: " + res);
-        });
-        $.get(cordova.file.applicationStorageDirectory + "lib/", function(res) {
-          alert("res7.4: " + res);
-        });
         alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.dataDirectory + "Documents/", function(res) {
+        $.get(cordova.file.dataDirectory, function(res) {
           alert("res8: " + res);
-        });
-        alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.externalDataDirectory, function(res) {
-          alert("res9: " + res);
-        });
-        alert(cordova.file.externalApplicationStorageDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.externalApplicationStorageDirectory, function(res) {
-          alert("res3: " + res);
-        });
-        alert(cordova.file.externalApplicationStorageDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.externalApplicationStorageDirectory + "cache/", function(res) {
-          alert("res3.1: " + res);
-        });
-        alert(cordova.file.externalApplicationStorageDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.externalApplicationStorageDirectory + "files/", function(res) {
-          alert("res3.2: " + res);
         });
       }
     </script>
-    <!--script type="text/javascript">
+    <script type="text/javascript">
       var xhr = new XMLHttpRequest();
       var url = "http://opcom.policiatijuana.mx/";
       xhr.addEventListener('readystatechange', state_change, true);
@@ -156,6 +111,6 @@
           } 
         }
       }
-    </script-->
+    </script>
   </body>
 </html> 
