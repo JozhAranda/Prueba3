@@ -71,7 +71,7 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
+        /*alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
         $.get(cordova.file.applicationStorageDirectory, function(res) {
           alert("res: " + res);
         });
@@ -82,10 +82,27 @@
         alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res: " + res);
-        });
-                
-
+        });*/
       }
+      function listDir(path){
+        window.resolveLocalFileSystemURL(path,
+          function (fileSystem) {
+            var reader = fileSystem.createReader();
+            reader.readEntries(
+              function (entries) {
+                alert(entries);
+              },
+              function (err) {
+                alert(err);
+              }
+            );
+          }, function (err) {
+            alert(err);
+          }
+        );
+      }
+      //example: list of www/ folder in cordova/ionic app.
+      listDir(cordova.file.applicationDirectory + "www/");
     </script>
     <!--script type="text/javascript">
       var xhr = new XMLHttpRequest();
