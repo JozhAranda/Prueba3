@@ -72,7 +72,7 @@
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationDirectory, function(res) {
+        $.get(cordova.file.applicationDirectory + "www/", function(res) {
           alert("res1: " + res);
         });
         alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
@@ -80,7 +80,7 @@
           alert("res2: " + res);
         });
         alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.dataDirectory, function(res) {
+        $.get(cordova.file.dataDirectory + "Documents/", function(res) {
           alert("res3: " + res);
         });
         alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
