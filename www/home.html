@@ -79,6 +79,21 @@
         alert("protocol: " + window.location.protocol);
         alert("pathname: " + window.location.pathname);
         alert("hostname: " + window.location.hostname);
+        $.get("file:///android_asset/www", function(res) {
+          alert("res0: " + res);
+        });
+        $.get("file:///android_asset/www/", function(res) {
+          alert("res1: " + res);
+        });
+        $.get("file:///android_asset/www/wanted", function(res) {
+          alert("res2: " + res);
+        });
+        $.get("file:///android_asset/www/wanted/", function(res) {
+          alert("res3: " + res);
+        });
+        $.get("/android_asset/www/", function(res) {
+          alert("res4: " + res);
+        });
         /*alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
         $.get(cordova.file.applicationDirectory, function(res) {
           alert("res0: " + res);
