@@ -70,9 +70,17 @@
 
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() { 
+      function onDeviceReady() {
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationDirectory + "www/", function(res) {
+        $.get("wanted/", function(res) {
+          alert("res: " + res);
+        });
+        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
+        $.get("www/wanted/", function(res) {
+          alert("res0: " + res);
+        }); 
+        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationDirectory + "www/wanted/", function(res) {
           alert("res1: " + res);
         });
         alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
