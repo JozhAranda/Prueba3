@@ -72,17 +72,15 @@
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
         //This alias is a read-only pointer to the app itself
-        window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/wanted/", gotFile, fail);
-
+        window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/wanted", gotFile, fail);
       }
 
       function fail(e) {
-        alert("FileSystem Error" + e);
+        alert("FileSystem Error" + e.status);
         alert(e);
       }
 
       function gotFile(fileEntry) {
-
         fileEntry.file(function(file) {
           var s = "";
           s += "<b>name:</b> " + file.name + "<br/>";
