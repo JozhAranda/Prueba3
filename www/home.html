@@ -71,19 +71,23 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationStorageDirectory + "www/", function(res) {
+        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationDirectory, function(res) {
           alert("res1: " + res);
         });
-        alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.dataDirectory + "www/", function(res) {
+        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationStorageDirectory, function(res) {
           alert("res2: " + res);
         });
-        alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.externalDataDirectory + "www/", function(res) {
+        alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
+        $.get(cordova.file.dataDirectory, function(res) {
           alert("res3: " + res);
         });
-      }/*
+        alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
+        $.get(cordova.file.externalDataDirectory, function(res) {
+          alert("res4: " + res);
+        });
+      }
       function listDir(path){
         window.resolveLocalFileSystemURL(path,
           function (fileSystem) {
@@ -102,7 +106,7 @@
         );
       }
       //example: list of www/ folder in cordova/ionic app.
-      listDir(cordova.file.applicationDirectory + "www/");*/
+      listDir(cordova.file.applicationDirectory + "www/");
     </script>
     <!--script type="text/javascript">
       var xhr = new XMLHttpRequest();
