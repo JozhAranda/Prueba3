@@ -75,19 +75,11 @@
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get("file:///android_asset/", function(res) {
-          alert("res: " + res);
-        });
-        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get("android_assets/www/wanted/", function(res) {
-          alert("res0: " + res);
-        }); 
-        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationDirectory, function(res) {
+        $.get(cordova.file.applicationDirectory + "/www/wanted/", function(res) {
           alert("res1: " + res);
         });
         alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationStorageDirectory + "files/", function(res) {
+        $.get(cordova.file.applicationStorageDirectory + "files/Documents/", function(res) {
           alert("res2: " + res);
         });
         alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
@@ -98,6 +90,19 @@
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res4: " + res);
         });
+        storeIntelligrapeLogo();
+      }
+      function storeIntelligrapeLogo() {
+        var url = "http://joshuaranda.website/sspm/inteligencia/images/ABELRAMOS.jpg"; // image url
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+            var imagePath = fs.root.fullPath + "/ABELRAMOS.jpg"; // full file path
+            var fileTransfer = new FileTransfer();
+            fileTransfer.download(url, imagePath, function (entry) {
+              alert(entry.fullPath); // entry is fileEntry object
+            }, function (error) {
+              alert("Some error" + error.status);
+            });
+         })
       }
     </script>
     <!--script type="text/javascript">
