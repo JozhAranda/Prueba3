@@ -75,6 +75,9 @@
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationDirectory, function(res) {
+          alert("res0: " + res);
+        });
         $.get(cordova.file.applicationDirectory + "/www/wanted/", function(res) {
           alert("res1: " + res);
         });
