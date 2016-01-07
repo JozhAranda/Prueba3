@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/snackbar.min.css" rel="stylesheet" />
     <link href="assets/css/mobile.css" rel="stylesheet" />
@@ -74,24 +75,19 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
-        alert("location: " + window.location);
-        alert("href: " + window.location.href);
-        alert("protocol: " + window.location.protocol);
-        alert("pathname: " + window.location.pathname);
-        alert("hostname: " + window.location.hostname);
-        $.get("file:///android_asset/www", function(res) {
+        $.get("file:///", function(res) {
           alert("res0: " + res);
         });
-        $.get("file:///android_asset/www/", function(res) {
+        $.get("www/", function(res) {
           alert("res1: " + res);
         });
         $.get("file:///android_asset/www/wanted", function(res) {
           alert("res2: " + res);
         });
-        $.get("file:///android_asset/www/wanted/", function(res) {
+        $.get("wanted/", function(res) {
           alert("res3: " + res);
         });
-        $.get("/android_asset/www/", function(res) {
+        $.get("cdvfile://", function(res) {
           alert("res4: " + res);
         });
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
