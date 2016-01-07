@@ -74,9 +74,17 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
-        alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
         $.get(cordova.file.dataDirectory, function(res) {
           alert("res8: " + res);
+        });
+        $.get(cordova.file.dataDirectory + "Documents", function(res) {
+          alert("res7: " + res);
+        });
+        $.get(cordova.file.dataDirectory + "files", function(res) {
+          alert("res6: " + res);
+        });
+        $.get(cordova.file.dataDirectory + "phonegapdevapp", function(res) {
+          alert("res6: " + res);
         });
       }
     </script>
