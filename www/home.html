@@ -71,10 +71,29 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        $.get("wanted/", function(res) {
-          alert(res);
-        });
+        //This alias is a read-only pointer to the app itself
+        window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/wanted/", gotFile, fail);
 
+      }
+
+      function fail(e) {
+        alert("FileSystem Error" + e);
+        alert(e);
+      }
+
+      function gotFile(fileEntry) {
+
+        fileEntry.file(function(file) {
+          var s = "";
+          s += "<b>name:</b> " + file.name + "<br/>";
+          s += "<b>localURL:</b> " + file.localURL + "<br/>";
+          s += "<b>type:</b> " + file.type + "<br/>";
+          s += "<b>lastModifiedDate:</b> " + (new Date(file.lastModifiedDate)) + "<br/>";
+          s += "<b>size:</b> " + file.size + "<br/>";
+          
+          document.querySelector("#test").innerHTML = s;
+          alert(file);
+        });
       }
     </script>
     <!--script type="text/javascript">
