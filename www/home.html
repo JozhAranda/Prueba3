@@ -77,15 +77,6 @@
         $.get("file:///", function(res) {
           alert("res0: " + res);
         });
-        $.get("www/", function(res) {
-          alert("res1: " + res);
-        });
-        $.get("file:///android_asset/www/wanted", function(res) {
-          alert("res2: " + res);
-        });
-        $.get("wanted/", function(res) {
-          alert("res3: " + res);
-        });
         $.get("cdvfile://", function(res) {
           alert("res4: " + res);
         });
@@ -97,7 +88,7 @@
           alert("res6: " + res);
         });
         alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationStorageDirectory + "files/Documents/", function(res) {
+        $.get(cordova.file.applicationStorageDirectory, function(res) {
           alert("res7: " + res);
         });
         alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
@@ -107,6 +98,10 @@
         alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res9: " + res);
+        });
+        alert(cordova.file.externalApplicationStorageDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
+        $.get(cordova.file.externalApplicationStorageDirectory, function(res) {
+          alert("res3: " + res);
         });
       }
     </script>
