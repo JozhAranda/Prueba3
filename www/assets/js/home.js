@@ -1,8 +1,8 @@
-/*
+
 $(document).ready(function() {   
   $.ajax({            
-    //url: "http://joshuaranda.website/sspm/inteligencia/images.php", 
-    url: "img.php",
+    url: "http://joshuaranda.website/sspm/inteligencia/images.php", 
+    //url: "img.php",
     type: "POST",          
     dataType: "HTML",
     async: true,
@@ -41,8 +41,8 @@ $(document).ready(function() {
     }
   }); 
 });      
-*/
 
+/*
 $.get("wanted/", function(data) {          
   var html = '<div class="main-gallery gallery js-flickity">';
   $('#test').text(data);        
@@ -76,7 +76,7 @@ $.get("wanted/", function(data) {
     pageDots: false
   });      
 });
-
+*/
 $('#syncData').on('click touch', function(event) {
   event.preventDefault();
 });

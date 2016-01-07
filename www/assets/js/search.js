@@ -1,8 +1,8 @@
-/*
+
 $(document).ready(function() {          
   $('#inputSearch').keypress(function(event) {
 
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
     
       event.preventDefault();  
       var search = $('#inputSearch').val();
@@ -17,8 +17,8 @@ $(document).ready(function() {
 
       $.ajax({             
         type: "GET", 
-        //url: "http://joshuaranda.website/sspm/inteligencia/images.php?search=" + search,          
-        url: "img.php?search=" + search,
+        url: "http://joshuaranda.website/sspm/inteligencia/images.php?search=" + search,          
+        //url: "img.php?search=" + search,
         dataType: "HTML",
         async: true,
         crossDomain: true,
@@ -58,9 +58,22 @@ $(document).ready(function() {
       });
     }
   });
-});
-*/
+  function record(value) {
+    value   = value.toUpperCase();
+    var aux = value.split("-");
+    var record = new Array();
 
+    for(var i = 0; i <= aux.length; i++) {
+
+      record.push(aux[i]);
+    }
+
+    aux = null;
+    return record;
+  }
+});
+
+/*
 $('#inputSearch').keypress(function(event) {
 
   if(event.keyCode == 13) {
@@ -143,3 +156,4 @@ function record(value) {
 
   return record;
 }
+*/
