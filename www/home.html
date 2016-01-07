@@ -72,19 +72,19 @@
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get("wanted/", function(res) {
+        $.get("file:///android_asset/", function(res) {
           alert("res: " + res);
         });
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get("www/wanted/", function(res) {
+        $.get("android_assets/www/wanted/", function(res) {
           alert("res0: " + res);
         }); 
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationDirectory + "www/wanted/", function(res) {
+        $.get(cordova.file.applicationDirectory, function(res) {
           alert("res1: " + res);
         });
         alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationStorageDirectory, function(res) {
+        $.get(cordova.file.applicationStorageDirectory + "files/", function(res) {
           alert("res2: " + res);
         });
         alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
