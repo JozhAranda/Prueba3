@@ -58,19 +58,6 @@ $(document).ready(function() {
       });
     }
   });
-  function record(value) {
-    value   = value.toUpperCase();
-    var aux = value.split("-");
-    var record = new Array();
-
-    for(var i = 0; i <= aux.length; i++) {
-
-      record.push(aux[i]);
-    }
-
-    aux = null;
-    return record;
-  }
 });
 
 /*
