@@ -74,6 +74,8 @@
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
+        alert(window.localStorage);
+        alert(window.localStorage.key(0));
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
         $.get(cordova.file.applicationDirectory, function(res) {
           alert("res0: " + res);
@@ -93,19 +95,6 @@
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res4: " + res);
         });
-        storeIntelligrapeLogo();
-      }
-      function storeIntelligrapeLogo() {
-        var url = "http://joshuaranda.website/sspm/inteligencia/images/ABELRAMOS.jpg"; // image url
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-            var imagePath = fs.root.fullPath + "/ABELRAMOS.jpg"; // full file path
-            var fileTransfer = new FileTransfer();
-            fileTransfer.download(url, imagePath, function (entry) {
-              alert(entry.fullPath); // entry is fileEntry object
-            }, function (error) {
-              alert("Some error" + error.status);
-            });
-         })
       }
     </script>
     <!--script type="text/javascript">
