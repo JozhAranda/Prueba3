@@ -59,53 +59,46 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/jquery.min.js" id="jquery"></script>
-    <!--script src="cordova.js" type="text/javascript"></script-->
+    <script src="cordova.js" type="text/javascript"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/snackbar.min.js"></script>
     <script src="assets/js/flickity.min.js"></script>
     <script src="assets/js/fancybox.min.js"></script>
 
-    <!--script type="text/javascript">
+    <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() {
-        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
+        /*alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
         $.get("file:///android_assets/www/wanted/", function(res) {
           alert("res0: " + res);
-        }); 
+        });*/ 
         alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationStorageDirectory + "files/", function(res) {
+        $.get(cordova.file.applicationStorageDirectory + "www/wanted/", function(res) {
+          alert("res1: " + res);
+        });
+        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationStorageDirectory + "www/", function(res) {
           alert("res2: " + res);
         });
-        alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
+        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationStorageDirectory + "file/www/", function(res) {
+          alert("res3: " + res);
+        });
+        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationStorageDirectory + "file/www/wanted/", function(res) {
+          alert("res4: " + res);
+        });
+        /*alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
         $.get(cordova.file.dataDirectory + "Documents/", function(res) {
           alert("res3: " + res);
         });
         alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res4: " + res);
-        });
-        //example: list of www/ folder in cordova/ionic app.
-        listDir(cordova.file.applicationDirectory + "www/");
+        });*/
       }
-      function listDir(path){
-        window.resolveLocalFileSystemURL(path,
-          function (fileSystem) {
-            var reader = fileSystem.createReader();
-            reader.readEntries(
-              function (entries) {
-                alert(entries);
-              },
-              function (err) {
-                alert(err.status);
-              }
-            );
-          }, function (err) {
-            alert(err.status);
-          }
-        );
-      }
-    </script-->
+    </script>
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
       var url = "http://opcom.policiatijuana.mx/";
