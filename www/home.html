@@ -64,10 +64,15 @@
     <script src="assets/js/snackbar.min.js"></script>
     <script src="assets/js/flickity.min.js"></script>
     <script src="assets/js/fancybox.min.js"></script>
-    <!--script src="assets/js/home.js"></script-->
+    <script src="assets/js/home.js"></script>
     <script src="assets/js/search.js"></script>
 
-    <script type="text/javascript">      
+    <script type="text/javascript">
+      $(function() {
+        $(".fancybox").fancybox();
+      });
+    </script>
+    <script type="text/javascript" charset="utf-8">      
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
@@ -86,19 +91,15 @@
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res4: " + res);
         });  
-
+/*
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: "wanted",
           function() { alert('success'); }, 
           function() { alert('fail'); }
         });
+*/
       }
-    </script>
-    <script type="text/javascript">
-      $(function() {
-        $(".fancybox").fancybox();
-      });
     </script>
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
