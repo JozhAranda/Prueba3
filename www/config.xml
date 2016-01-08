@@ -39,8 +39,7 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
     <preference name="useBrowserHistory"          value="true" />           <!-- all: Browser history -->
     
-    <!--preference name="AndroidPersistentFileLocation" value="Compatibility" />
-    <preference name="BackupWebStorage" value="none" /-->
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <!--
         Define a specific version of PhoneGap to build into your app.
     -->
@@ -116,13 +115,11 @@
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-navigation href="*" />
     <allow-navigation href="data:*" />
-    <!--allow-navigation href="file:///*" />
-    <allow-navigation href="cdvfile://*" /-->
+    <allow-navigation href="file:///*" />
     <allow-navigation href="http://*/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <!--allow-intent href="file:///*" />
-    <allow-intent href="cdvfile://*" /-->
+    <allow-intent href="file:///*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
