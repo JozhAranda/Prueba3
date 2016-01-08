@@ -1,4 +1,4 @@
-
+/*
 $(document).ready(function() {          
   $('#inputSearch').keypress(function(event) {
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
     }
   });
 });
-
+*/
 $('#inputSearch').keypress(function(event) {
 
   if(event.keyCode == 13) {

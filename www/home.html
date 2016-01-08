@@ -47,12 +47,12 @@
           <h4 id="textEmpty"></h4>
           <div class="loader"></div>
           <div class="well-card" id="gallery"></div>
-          <!--div class="pull-right" style="margin: 25px 0 40px;">
-            <span style="color: #999;">Sincronizar las imagenes -> </span>
+          <div class="pull-right" style="margin: 25px 0 40px;">
+            <span style="color: #999;">Sincronizar imagenes -> </span>
             <button id="syncData" class="btn btn-primary" style="background: rgba(0, 23, 52, 0.9);">
-              <img src="assets/img/download.png" width="21" title="Nueva infracción" alt="Nueva infracción" />
+              <img src="assets/img/download.png" width="21" title="Sincronizar imagenes" alt="Sincronizar imagenes" />
             </button>
-          </div-->
+          </div>
         </div>  
       </div>
     </div>
@@ -74,9 +74,6 @@
       });
     </script>
     <script type="text/javascript">
-      document.addEventListener("deviceready", onDeviceReady, false);
-    </script>
-    <script type="text/javascript">
       var xhr = new XMLHttpRequest();
       var url = "http://opcom.policiatijuana.mx/";
       xhr.addEventListener('readystatechange', state_change, true);
@@ -87,27 +84,11 @@
         if(xhr.readyState === 4){
           if(xhr.status === 200){
             $('#syncData').removeAttr('disabled');
-/*
-            var s = document.createElement("script");
-            var t = document.createElement("script");
 
-            s.type = "text/javascript";
-            t.type = "text/javascript";
-
-            s.src = "assets/js/home.js";
-            t.src = "assets/js/search.js";
-
-            $("#jquery").append(s);
-            $("#jquery").append(t);
-*/
-            function onDeviceReady() { 
-              asset2sd.copyDir({
-                  asset_directory: "www/wanted",
-                  destination_directory: "Android/data/com.phonegap.inteligencia/files",
-                  function() { alert('success'); }, 
-                  function() { alert('fail'); }
-              });  
-            } 
+            $('#syncData').on('click touch', function(event) {
+              event.preventDefault();
+              document.addEventListener("deviceready", onDeviceReady, false);
+            }); 
 
           } else if(xhr.status === 0) {
             $('#syncData').attr('disabled','disabled'); 
@@ -116,6 +97,24 @@
           } 
         }
       }
+    </script>
+    <script type="text/javascript">
+      function onDeviceReady() {
+        $(".loader").fadeOut("200").css("display", "block"); 
+        asset2sd.copyDir({
+          asset_directory: "www/wanted",
+          destination_directory: "Android/data/com.phonegap.inteligencia/files",
+          function() { 
+            $(".loader").css("display", "none"); 
+          }, 
+          function() { 
+            $.snackbar({
+              content: "Ocurrio un error, al intentar conectarse al servidor", 
+              timeout: 5000
+            });
+          }
+        }); 
+      } 
     </script>
   </body>
 </html> 

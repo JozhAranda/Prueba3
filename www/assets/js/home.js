@@ -75,7 +75,3 @@ $.get(cordova.file.externalDataDirectory, function(data) {
     pageDots: false
   });      
 });
-
-$('#syncData').on('click touch', function(event) {
-  event.preventDefault();
-});
