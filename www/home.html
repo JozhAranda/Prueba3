@@ -67,6 +67,25 @@
     <script src="assets/js/home.js"></script>
     <script src="assets/js/search.js"></script>
 
+    <script type="text/javascript">      
+      document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {
+        $(".loader").fadeOut("200").css("display", "block"); 
+        asset2sd.copyDir({
+          asset_directory: "www/wanted",
+          destination_directory: "Android/data/com.phonegap.inteligencia/files",
+          function() { 
+            $(".loader").css("display", "none"); 
+          }, 
+          function() { 
+            $.snackbar({
+              content: "Ocurrio un error, al intentar sincronizar las imagenes", 
+              timeout: 5000
+            });
+          }
+        }); 
+      } 
+    </script>
     <script type="text/javascript">
       $(function() {
         $(".fancybox").fancybox();
@@ -95,7 +114,7 @@
     <script type="text/javascript">
       $(function() {
         $('#syncData').on('click touch', function(event) {
-          //event.preventDefault();
+          event.preventDefault();
           document.addEventListener("deviceready", onDeviceReady, false);
         }); 
         function onDeviceReady() {
