@@ -39,13 +39,12 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
     <preference name="useBrowserHistory"          value="true" />           <!-- all: Browser history -->
     
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <!--preference name="AndroidPersistentFileLocation" value="Compatibility" /-->
     <!--
         Define a specific version of PhoneGap to build into your app.
     -->
     <preference name="phonegap-version"       value="3.6.3" />
     <!-- Plugins -->
-    <feature name="http://api.phonegap.com/1.0/file" /><!-- WRITE_EXTERNAL_STORAGE; required for camera to write to camera roll -->
     <!-- Core plugins -->
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.device-orientation" />
@@ -95,8 +94,6 @@
     -->
 
     <access origin="*"/>
-    <!--access origin="cdvfile://*" />
-    <access origin="file:///*" /-->
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
     <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
     <plugin name="cordova-plugin-whitelist" version="1" />
