@@ -46,12 +46,12 @@
           <h4 id="textEmpty"></h4>
           <div class="loader"></div>
           <div class="well-card" id="gallery"></div>
-          <div class="pull-right" style="margin: 25px 0 40px;">
+          <!--div class="pull-right" style="margin: 25px 0 40px;">
             <span style="color: #999;">Sincronizar imagenes -> </span>
             <button id="syncData" class="btn btn-primary" style="background: rgba(0, 23, 52, 0.9);">
               <img src="assets/img/download.png" width="21" title="Sincronizar imagenes" alt="Sincronizar imagenes" />
             </button>
-          </div>
+          </div-->
         </div>  
       </div>
     </div>
@@ -70,13 +70,6 @@
     <script type="text/javascript">      
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        asset2sd.copyDir({
-          asset_directory: "www/wanted",
-          destination_directory: "Android/data/com.phonegap.inteligencia/files",
-          function() { alert('success'); }, 
-          function() { alert('fail'); }
-        });
-
         alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
         $.get("file:///android_assets/www/wanted/", function(res) {
           alert("res0: " + res);
@@ -93,6 +86,13 @@
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res4: " + res);
         });  
+        
+        asset2sd.copyDir({
+          asset_directory: "www/wanted",
+          destination_directory: "Android/data/com.phonegap.inteligencia/files",
+          function() { alert('success'); }, 
+          function() { alert('fail'); }
+        });
       }
     </script>
     <script type="text/javascript">
@@ -120,7 +120,7 @@
         }
       }
     </script>
-    <script type="text/javascript">
+    <!--script type="text/javascript">
       $(function() {
         $('#syncData').on('click touch', function(event) {
           document.addEventListener("deviceready", initDevice, false);
@@ -144,6 +144,6 @@
           }
         }); 
       } 
-    </script>
+    </script-->
   </body>
 </html> 
