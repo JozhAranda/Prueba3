@@ -69,22 +69,14 @@
 
     <script type="text/javascript">      
       document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() {
-        $(".loader").fadeOut("200").css("display", "block"); 
+      function onDeviceReady() { 
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: "Android/data/com.phonegap.inteligencia/files",
-          function() { 
-            $(".loader").css("display", "none"); 
-          }, 
-          function() { 
-            $.snackbar({
-              content: "Ocurrio un error, al intentar sincronizar las imagenes", 
-              timeout: 5000
-            });
-          }
-        }); 
-      } 
+          function() { alert('success'); }, 
+          function() { alert('fail'); }
+        });  
+      }
     </script>
     <script type="text/javascript">
       $(function() {
@@ -114,26 +106,27 @@
     <script type="text/javascript">
       $(function() {
         $('#syncData').on('click touch', function(event) {
-          event.preventDefault();
           document.addEventListener("deviceready", onDeviceReady, false);
+        });
+      }); 
+      function onDeviceReady() {
+        asset2sd.copyDir({
+          asset_directory: "www/wanted",
+          destination_directory: "Android/data/com.phonegap.inteligencia/files",
+          function() { 
+            $.snackbar({
+              content: "Sincronizado correctamente", 
+              timeout: 5000
+            });
+          }, 
+          function() { 
+            $.snackbar({
+              content: "Ocurrio un error, al intentar sincronizar las imagenes", 
+              timeout: 5000
+            });
+          }
         }); 
-        function onDeviceReady() {
-          $(".loader").fadeOut("200").css("display", "block"); 
-          asset2sd.copyDir({
-            asset_directory: "www/wanted",
-            destination_directory: "Android/data/com.phonegap.inteligencia/files",
-            function() { 
-              $(".loader").css("display", "none"); 
-            }, 
-            function() { 
-              $.snackbar({
-                content: "Ocurrio un error, al intentar sincronizar las imagenes", 
-                timeout: 5000
-              });
-            }
-          }); 
-        } 
-      });
+      } 
     </script>
   </body>
 </html> 
