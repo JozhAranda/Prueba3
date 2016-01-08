@@ -70,6 +70,7 @@ $('#inputSearch').keypress(function(event) {
     var search = $('#inputSearch').val();
     
     $("#gallery").load(location.href+" #gallery>*","");
+    $(".loader").fadeOut("200").css("display", "block");
 
     if(!$(this).val()) {
 
@@ -84,7 +85,8 @@ $('#inputSearch').keypress(function(event) {
       search = search.replace('"', '');
       search = search.toUpperCase();
 
-      $.get(cordova.file.externalDataDirectory, function(data) {          
+      $.get(cordova.file.externalDataDirectory, function(data) {
+        $(".loader").css("display", "none");          
         var html = '<div class="main-gallery gallery js-flickity">';
                 
         $(data).each(function(key, element) {
@@ -129,10 +131,8 @@ $('#inputSearch').keypress(function(event) {
   }
 });
 function record(value) {
-
   value   = value.toUpperCase();
   var aux = value.split("-");
-
   var record = new Array();
 
   for(var i = 0; i <= aux.length; i++) {
@@ -141,6 +141,5 @@ function record(value) {
   }
 
   aux = null;
-
   return record;
 }

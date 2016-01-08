@@ -43,7 +43,7 @@ $(document).ready(function() {
 });      
 */
 
-$.get(cordova.file.externalDataDirectory, function(data) {          
+$.get(cordova.file.externalDataDirectory, function(data) {    
   var html = '<div class="main-gallery gallery js-flickity">';
   $(data).each(function(key, element) {
     if(key >= 4) {
