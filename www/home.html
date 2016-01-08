@@ -78,7 +78,7 @@
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: "Android/data/com.phonegap.inteligencia/files",
-          function() { alert('success'); }, 
+          function(result) { alert('success'); }, 
           function() { alert('fail'); }
         });
       }
