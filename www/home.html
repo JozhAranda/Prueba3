@@ -86,10 +86,10 @@
         $.get(cordova.file.externalDataDirectory, function(res) {
           alert("res4: " + res);
         });  
-        
+
         asset2sd.copyDir({
           asset_directory: "www/wanted",
-          destination_directory: "Android/data/com.phonegap.inteligencia/files",
+          destination_directory: "wanted",
           function() { alert('success'); }, 
           function() { alert('fail'); }
         });
