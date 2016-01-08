@@ -62,7 +62,6 @@ $(document).ready(function() {
   });
 });
 
-/*
 $('#inputSearch').keypress(function(event) {
 
   if(event.keyCode == 13) {
@@ -85,7 +84,7 @@ $('#inputSearch').keypress(function(event) {
       search = search.replace('"', '');
       search = search.toUpperCase();
 
-      $.get("wanted/", function(data) {          
+      $.get(cordova.file.externalDataDirectory, function(data) {          
         var html = '<div class="main-gallery gallery js-flickity">';
                 
         $(data).each(function(key, element) {
@@ -97,7 +96,7 @@ $('#inputSearch').keypress(function(event) {
 
               var first = abc.split('"');
               var image = first[1];
-              var dir = "wanted/" + image;
+              var dir = cordova.file.externalDataDirectory + image;
 
               var imgArray = new Array();
               var imgTemp = image.substring(0, image.lastIndexOf("."));
@@ -145,4 +144,3 @@ function record(value) {
 
   return record;
 }
-*/

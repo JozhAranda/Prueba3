@@ -42,10 +42,9 @@ $(document).ready(function() {
   }); 
 });      
 */
-/*
-$.get("wanted/", function(data) {          
+
+$.get(cordova.file.externalDataDirectory, function(data) {          
   var html = '<div class="main-gallery gallery js-flickity">';
-  $('#test').text(data);        
   $(data).each(function(key, element) {
     if(key >= 4) {
       if(element.text != undefined) {
@@ -55,7 +54,7 @@ $.get("wanted/", function(data) {
 
         var first = abc.split('"');
         var image = first[1];
-        var dir = "wanted/" + image;
+        var dir = cordova.file.externalDataDirectory + image;
         
         html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
         html += '<a class="fancybox" rel="group" href="'+ dir +'">';
@@ -76,7 +75,7 @@ $.get("wanted/", function(data) {
     pageDots: false
   });      
 });
-*/
+
 $('#syncData').on('click touch', function(event) {
   event.preventDefault();
 });

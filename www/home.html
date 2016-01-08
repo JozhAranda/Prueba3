@@ -65,6 +65,8 @@
     <script src="assets/js/snackbar.min.js"></script>
     <script src="assets/js/flickity.min.js"></script>
     <script src="assets/js/fancybox.min.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/search.js"></script>
 
     <script type="text/javascript">
       $(function() {
@@ -73,65 +75,6 @@
     </script>
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() { 
-        asset2sd.copyDir({
-            asset_directory: "www/wanted",
-            destination_directory: "Android/data/com.phonegap.inteligencia/files",
-            function() { alert('success'); }, 
-            function() { alert('fail'); }
-        });   
-
-        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get("file:///android_assets/www/wanted/", function(res) {
-          alert("res0: " + res);
-        }); 
-        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationStorageDirectory + "files/", function(res) {
-          alert("res2: " + res);
-        });
-        alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.dataDirectory + "Documents/", function(res) {
-          alert("res3: " + res);
-        });
-        alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.externalDataDirectory, function(res) {
-          alert("res4: " + res);
-        });
-
-        $.get(cordova.file.externalDataDirectory, function(data) {          
-          var html = '<div class="main-gallery gallery js-flickity">';
-          $('#test').text(data);        
-          $(data).each(function(key, element) {
-            if(key >= 4) {
-              if(element.text != undefined) {
-
-                $('#testInput').val(element.text);            
-                var abc = $('#testInput').val();
-
-                var first = abc.split('"');
-                var image = first[1];
-                var dir = cordova.file.externalDataDirectory + image;
-                
-                html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
-                html += '<a class="fancybox" rel="group" href="'+ dir +'">';
-                html += '<img src="'+ dir +'" class="img" title="'+ image +'" width="512" />';
-                html += '</a>';
-                html += '</div>'; 
-              }
-            }            
-          });
-          
-          html += '</div>'; 
-          
-          $('#gallery').append(html);
-          $('.main-gallery').flickity({
-            freeScroll: true,
-            prevNextButtons: false,
-            contain: true,
-            pageDots: false
-          });      
-        });
-      }
     </script>
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
@@ -144,7 +87,7 @@
         if(xhr.readyState === 4){
           if(xhr.status === 200){
             $('#syncData').removeAttr('disabled');
-
+/*
             var s = document.createElement("script");
             var t = document.createElement("script");
 
@@ -156,6 +99,15 @@
 
             $("#jquery").append(s);
             $("#jquery").append(t);
+*/
+            function onDeviceReady() { 
+              asset2sd.copyDir({
+                  asset_directory: "www/wanted",
+                  destination_directory: "Android/data/com.phonegap.inteligencia/files",
+                  function() { alert('success'); }, 
+                  function() { alert('fail'); }
+              });  
+            } 
 
           } else if(xhr.status === 0) {
             $('#syncData').attr('disabled','disabled'); 
@@ -164,7 +116,6 @@
           } 
         }
       }
-    </script>
     </script>
   </body>
 </html> 
