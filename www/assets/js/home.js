@@ -1,4 +1,4 @@
-
+/*
 $(document).ready(function() {   
   $.ajax({            
     url: "http://joshuaranda.website/sspm/inteligencia/images.php", 
@@ -41,7 +41,7 @@ $(document).ready(function() {
     }
   }); 
 });      
-
+*/
 /*
 $.get("wanted/", function(data) {          
   var html = '<div class="main-gallery gallery js-flickity">';
