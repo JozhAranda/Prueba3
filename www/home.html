@@ -75,30 +75,12 @@
     <script type="text/javascript" charset="utf-8">      
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
-        $.get("file:///android_assets/www/wanted/", function(res) {
-          alert("res0: " + res);
-        }); 
-        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
-        $.get(cordova.file.applicationStorageDirectory + "files/", function(res) {
-          alert("res2: " + res);
-        });
-        alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.dataDirectory + "Documents/", function(res) {
-          alert("res3: " + res);
-        });
-        alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
-        $.get(cordova.file.externalDataDirectory, function(res) {
-          alert("res4: " + res);
-        });  
-/*
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: "Android/data/com.phonegap.inteligencia/files",
           function() { alert('success'); }, 
           function() { alert('fail'); }
         });
-*/
       }
     </script>
     <script type="text/javascript">
