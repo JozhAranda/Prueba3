@@ -73,7 +73,14 @@
     </script>
     <script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() { }
+      function onDeviceReady() { 
+        asset2sd.copyDir({
+            asset_directory: "www/wanted",
+            destination_directory: "wanted",
+            function() { alert('success'); }, 
+            function() { alert('fail'); }
+        });   
+      }
     </script>
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
