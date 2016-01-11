@@ -90,7 +90,7 @@
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );*/
-        
+/*        
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: "wanted"
@@ -101,9 +101,44 @@
         //$(".loader").fadeOut("200").css("display", "block");
         $.get("file:///data/data/com.phonegap.inteligencia/file/", function(res) {
           alert("1.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
+/*        });
+*/
+
+        $.get("file:///", function(res) {
+          alert("res0: " + res);
         });
-        $.get("file:///wanted/", function(res) {
-          alert("2.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
+        $.get("cdvfile://", function(res) {
+          alert("res4: " + res);
+        });
+        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationDirectory, function(res) {
+          alert("res5: " + res);
+        });
+        alert(cordova.file.applicationDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationDirectory + "wanted/", function(res) {
+          alert("res1: " + res);
+        });
+        $.get(cordova.file.applicationDirectory + "www/wanted/", function(res) {
+          alert("res6: " + res);
+        });
+        alert(cordova.file.applicationStorageDirectory); // file:///data/user/0/com.
+        $.get(cordova.file.applicationStorageDirectory, function(res) {
+          alert("res7: " + res);
+        });
+        alert(cordova.file.dataDirectory);  // file:///data/user/0/com.phonegape.inteligencia/files/
+        $.get(cordova.file.dataDirectory + "Documents/", function(res) {
+          alert("res8: " + res);
+        });
+        alert(cordova.file.externalDataDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
+        $.get(cordova.file.externalDataDirectory, function(res) {
+          alert("res9: " + res);
+        });
+        alert(cordova.file.externalApplicationStorageDirectory); //file:///data/user/0/com.phonegape.inteligencia/files/
+        $.get(cordova.file.externalApplicationStorageDirectory, function(res) {
+          alert("res3: " + res);
+        });
+        $.get("file:///wanted", function(res) {
+          alert("res2:" + res); /* /data/data/com.phonegap.inteligencia/file/ */
         });
       }
     </script>
