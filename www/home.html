@@ -77,11 +77,11 @@
       function onDeviceReady() { 
         asset2sd.copyDir({
           asset_directory: "www/wanted",
-          destination_directory: "Android/data/com.phonegap.inteligencia/files",
-          function(result) { alert('success'); }, 
+          destination_directory: "Android/data/com.phonegap.inteligencia/files"
+        },
+          function() { alert('success'); }, 
           function() { alert('fail'); }
-        });
-      }
+        );
     </script>
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
