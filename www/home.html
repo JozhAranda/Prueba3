@@ -92,11 +92,14 @@
         );*/
         asset2sd.copyDir({
           asset_directory: "www/wanted",
-          destination_directory: cordova.file.externalDataDirectory
+          destination_directory: cordova.file.applicationStorageDirectory + "files/"
         },
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );
+        $.get(cordova.file.applicationStorageDirectory + "files/", function(res) {
+          alert(res);
+        });
       }
     </script>
     <script type="text/javascript">
