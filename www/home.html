@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/snackbar.min.css" rel="stylesheet" />
     <link href="assets/css/mobile.css" rel="stylesheet" />
@@ -77,14 +78,23 @@
       function onDeviceReady() { 
         window.requestFileSystem  = window.requestFileSystem ||   window.webkitRequestFileSystem;
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fsSuccess, fsFail);
-
+        
         asset2sd.copyDir({
           asset_directory: "www/wanted",
-          destination_directory: "Android/data/com.phonegap.inteligencia/files"
+          destination_directory: cordova.file.externalDataDirectory
         },
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );
+      }
+      function fsSuccess(fileSystem)
+      {
+          fs = fileSystem;
+          alert("fs name==>" +fs.name + "fs==>" + JSON.stringify(fs));
+      }
+      function fsFail(event)
+      {
+          alert(event.target.error.code);
       }
     </script>
     <script type="text/javascript">
