@@ -76,7 +76,7 @@
     <script type="text/javascript" charset="utf-8">      
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        asset2sd.copyDir({
+        /*asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: cordova.file.externalApplicationStorageDirectory + "files/"
         },
@@ -89,7 +89,7 @@
         },
           function() { alert('success'); }, 
           function() { alert('fail'); }
-        );
+        );*/
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: cordova.file.applicationStorageDirectory + "files/"
