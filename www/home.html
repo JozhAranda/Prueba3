@@ -90,15 +90,17 @@
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );*/
+        $(".loader").fadeOut("200").css("display", "block");
+        
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: cordova.file.applicationStorageDirectory + "files/"
         },
-          function() { alert('success'); }, 
+          function() { alert('success'); $(".loader").css("display", "none"); }, 
           function() { alert('fail'); }
         );
-        $.get(cordova.file.applicationStorageDirectory + "files/", function(res) {
-          alert(res);
+        $.get("/data/data/com.phonegap.inteligencia/file/", function(res) {
+          alert(res); /* /data/data/com.phonegap.inteligencia/file/ */
         });
       }
     </script>
