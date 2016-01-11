@@ -43,7 +43,7 @@ $(document).ready(function() {
 });      
 */
 
-$.get(cordova.file.applicationStorageDirectory + "files/", function(data) {    
+$.get("file:///sdcard/wanted", function(data) {    
   var html = '<div class="main-gallery gallery js-flickity">';
   $(data).each(function(key, element) {
     if(key >= 4) {
@@ -54,7 +54,7 @@ $.get(cordova.file.applicationStorageDirectory + "files/", function(data) {
 
         var first = abc.split('"');
         var image = first[1];
-        var dir = cordova.file.applicationStorageDirectory + "files/" + image;
+        var dir = "file:///sdcard/wanted" + image;
         
         html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
         html += '<a class="fancybox" rel="group" href="'+ dir +'">';

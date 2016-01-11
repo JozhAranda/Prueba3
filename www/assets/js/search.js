@@ -86,7 +86,7 @@ $('#inputSearch').keypress(function(event) {
       search = search.replace('"', '');
       search = search.toUpperCase();
 
-      $.get(cordova.file.externalDataDirectory, function(data) {
+      $.get("file:///sdcard/wanted", function(data) {
         $(".loader").css("display", "none");          
         var html = '<div class="main-gallery gallery js-flickity">';
                 
@@ -99,7 +99,7 @@ $('#inputSearch').keypress(function(event) {
 
               var first = abc.split('"');
               var image = first[1];
-              var dir = cordova.file.externalDataDirectory + image;
+              var dir = "file:///sdcard/wanted" + image;
 
               var imgArray = new Array();
               var imgTemp = image.substring(0, image.lastIndexOf("."));
