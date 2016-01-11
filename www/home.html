@@ -98,9 +98,15 @@
           function() { alert('success'); $(".loader").css("display", "none"); }, 
           function() { alert('fail'); }
         );*/
-        $(".loader").fadeOut("200").css("display", "block");
+        //$(".loader").fadeOut("200").css("display", "block");
         $.get("file:/data/data/com.phonegap.inteligencia/file/", function(res) {
-          alert(res); /* /data/data/com.phonegap.inteligencia/file/ */
+          alert("1.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
+        });
+        $.get("/data/data/com.phonegap.inteligencia/file/", function(res) {
+          alert("2.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
+        });
+        $.get("data/data/com.phonegap.inteligencia/file/", function(res) {
+          alert("3.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
         });
       }
     </script>
