@@ -54,7 +54,7 @@ $.get("file:///sdcard/wanted", function(data) {
 
         var first = abc.split('"');
         var image = first[1];
-        var dir = "file:///sdcard/wanted" + image;
+        var dir = "file:///sdcard/wanted/" + image;
         
         html += '<div class="gallery-cell" style="border: 1px solid #ccc;">';
         html += '<a class="fancybox" rel="group" href="'+ dir +'">';

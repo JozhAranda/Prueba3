@@ -47,12 +47,12 @@
           <h4 id="textEmpty"></h4>
           <div class="loader"></div>
           <div class="well-card" id="gallery"></div>
-          <!--div class="pull-right" style="margin: 25px 0 40px;">
+          <div class="pull-right" style="margin: 25px 0 40px;">
             <span style="color: #999;">Sincronizar imagenes -> </span>
             <button id="syncData" class="btn btn-primary" style="background: rgba(0, 23, 52, 0.9);">
               <img src="assets/img/download.png" width="21" title="Sincronizar imagenes" alt="Sincronizar imagenes" />
             </button>
-          </div-->
+          </div>
         </div>  
       </div>
     </div>
@@ -73,24 +73,9 @@
         $(".fancybox").fancybox();
       });
     </script>
-    <script type="text/javascript" charset="utf-8">      
+    <!--script type="text/javascript" charset="utf-8">      
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        /*asset2sd.copyDir({
-          asset_directory: "www/wanted",
-          destination_directory: cordova.file.externalApplicationStorageDirectory + "files/"
-        },
-          function() { alert('success'); }, 
-          function() { alert('fail'); }
-        );
-        asset2sd.copyDir({
-          asset_directory: "www/wanted",
-          destination_directory: cordova.file.externalDataDirectory
-        },
-          function() { alert('success'); }, 
-          function() { alert('fail'); }
-        );*/
-/*        
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: "wanted"
@@ -98,13 +83,9 @@
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );
-        //$(".loader").fadeOut("200").css("display", "block");
-        $.get("file:///data/data/com.phonegap.inteligencia/file/", function(res) {
-          alert("1.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
-/*        });
-*/
+
       }
-    </script>
+    </script-->
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
       var url = "http://opcom.policiatijuana.mx/";
@@ -125,30 +106,34 @@
         }
       }
     </script>
-    <!--script type="text/javascript">
+    <script type="text/javascript">
       $(function() {
         $('#syncData').on('click touch', function(event) {
+          $(".loader").fadeOut("200").css("display", "block");
           document.addEventListener("deviceready", initDevice, false);
         });
       }); 
       function initDevice() {
         asset2sd.copyDir({
           asset_directory: "www/wanted",
-          destination_directory: "Android/data/com.phonegap.inteligencia/files",
+          destination_directory: "wanted"
+          },
           function() { 
+            $(".loader").css("display", "none");
             $.snackbar({
               content: "Sincronizado correctamente", 
               timeout: 5000
             });
           }, 
           function() { 
+            $(".loader").css("display", "none");
             $.snackbar({
-              content: "Ocurrio un error, al intentar sincronizar las imagenes", 
+              content: "Ocurrio un error al momento de sincronizar las imagenes", 
               timeout: 5000
             });
           }
-        }); 
+        ); 
       } 
-    </script-->
+    </script>
   </body>
 </html> 

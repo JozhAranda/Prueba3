@@ -99,7 +99,7 @@ $('#inputSearch').keypress(function(event) {
 
               var first = abc.split('"');
               var image = first[1];
-              var dir = "file:///sdcard/wanted" + image;
+              var dir = "file:///sdcard/wanted/" + image;
 
               var imgArray = new Array();
               var imgTemp = image.substring(0, image.lastIndexOf("."));
