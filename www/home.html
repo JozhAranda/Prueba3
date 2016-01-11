@@ -75,6 +75,9 @@
     <script type="text/javascript" charset="utf-8">      
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
+        window.requestFileSystem  = window.requestFileSystem ||   window.webkitRequestFileSystem;
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fsSuccess, fsFail);
+
         asset2sd.copyDir({
           asset_directory: "www/wanted",
           destination_directory: "Android/data/com.phonegap.inteligencia/files"
@@ -82,6 +85,7 @@
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );
+      }
     </script>
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
