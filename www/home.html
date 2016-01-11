@@ -81,7 +81,7 @@
         
         asset2sd.copyDir({
           asset_directory: "www/wanted",
-          destination_directory: cordova.file.externalDataDirectory
+          destination_directory: "Android/data/com.phonegap.inteligencia/files"
         },
           function() { alert('success'); }, 
           function() { alert('fail'); }
@@ -89,12 +89,12 @@
       }
       function fsSuccess(fileSystem)
       {
-          fs = fileSystem;
-          alert("fs name==>" +fs.name + "fs==>" + JSON.stringify(fs));
+        fs = fileSystem;
+        alert("fs name==>" +fs.name + "fs==>" + JSON.stringify(fs));
       }
       function fsFail(event)
       {
-          alert(event.target.error.code);
+        alert(event.target.error.code);
       }
     </script>
     <script type="text/javascript">
