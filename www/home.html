@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"-->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/snackbar.min.css" rel="stylesheet" />
     <link href="assets/css/mobile.css" rel="stylesheet" />
@@ -76,6 +76,8 @@
     <script type="text/javascript" charset="utf-8">      
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
+        window.requestFileSystem  = window.requestFileSystem ||   window.webkitRequestFileSystem;
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fsSuccess, fsFail);
 /**/
         $.get("file:///data/", function(res) {
            alert("res0: " + res);
@@ -135,6 +137,15 @@
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );*/
+      }
+      function fsSuccess(fileSystem)
+      {
+        fs = fileSystem;
+        alert("fs name==>" +fs.name + "fs==>" + JSON.stringify(fs));
+      }
+      function fsFail(event)
+      {
+        alert(event.target.error.code);
       }
     </script>
     <script type="text/javascript">
