@@ -76,8 +76,8 @@
     <script type="text/javascript" charset="utf-8">      
       document.addEventListener("deviceready", onDeviceReady, false);
       function onDeviceReady() { 
-        window.requestFileSystem  = window.requestFileSystem ||   window.webkitRequestFileSystem;
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fsSuccess, fsFail);
+        //window.requestFileSystem  = window.requestFileSystem ||   window.webkitRequestFileSystem;
+        //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fsSuccess, fsFail);
 /**/
         $.get("file:///data/", function(res) {
            alert("res0: " + res);
@@ -137,7 +137,7 @@
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );*/
-      }
+      }/*
       function fsSuccess(fileSystem)
       {
         fs = fileSystem;
@@ -146,7 +146,7 @@
       function fsFail(event)
       {
         alert(event.target.error.code);
-      }
+      }*/
     </script>
     <script type="text/javascript">
       var xhr = new XMLHttpRequest();
