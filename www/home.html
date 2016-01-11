@@ -90,23 +90,20 @@
           function() { alert('success'); }, 
           function() { alert('fail'); }
         );*/
-        /*
+        
         asset2sd.copyDir({
           asset_directory: "www/wanted",
-          destination_directory: cordova.file.applicationStorageDirectory + "files/"
+          destination_directory: "wanted"
         },
-          function() { alert('success'); $(".loader").css("display", "none"); }, 
+          function() { alert('success'); }, 
           function() { alert('fail'); }
-        );*/
+        );
         //$(".loader").fadeOut("200").css("display", "block");
-        $.get("file:/data/data/com.phonegap.inteligencia/file/", function(res) {
+        $.get("file:///data/data/com.phonegap.inteligencia/file/", function(res) {
           alert("1.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
         });
-        $.get("/data/data/com.phonegap.inteligencia/file/", function(res) {
+        $.get("file:///wanted/", function(res) {
           alert("2.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
-        });
-        $.get("data/data/com.phonegap.inteligencia/file/", function(res) {
-          alert("3.-" + res); /* /data/data/com.phonegap.inteligencia/file/ */
         });
       }
     </script>
